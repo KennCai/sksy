@@ -1,1 +1,3 @@
 qqqqqqqqqqqqqqqq
+使用说明：
+安装node，打开dos命令窗口
