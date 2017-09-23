@@ -1,0 +1,373 @@
+#page{
+    margin:auto;
+    background-color: white;
+    width: 1340px;
+}
+#top{
+    background-color: #F1F1F1;
+    width: 1340px;
+    line-height: 30px;
+    margin-top: -5px;
+    color:#5F5F5F;
+    font-size: 14px;
+}
+#top #left{
+    width: 300px;
+    padding-left:90px;
+}
+
+#demo{
+    margin-top: -30px;
+    margin-left: 60px;
+}
+#top #right{
+    margin-top: -45px;
+}
+#top .right1{
+    display: inline;
+    position: relative;
+    right: -200px;
+    width: 300px;
+}
+
+#top .right2{
+    display: inline;
+    width: 400px;
+    position: absolute;
+    left: 910px;
+}
+#menu1{
+    width: 1340px;
+    height: 85px;
+
+}
+#div1{
+    padding-left: 90px;
+    float:left;
+}
+#div2{
+    font-size: 80px;
+    float:left;
+    margin-top: -5px;
+}
+#div3{
+    font-size: 20px;
+    float:left;
+    color:#FF0000;
+    padding-top: 5px;
+    font-family: �����п�;
+}
+#div4{
+    float:left;
+
+    padding-left: 150px;
+    padding-top: 17px;
+}
+#div5{
+    margin-top: 17px;
+    margin-left: -2px;;
+    width: 50px;
+    height: 42px;
+    border:2px solid #0CA2DE;
+    float: left;
+
+}
+#div6{
+    padding-left: 120px;
+    float: left;
+    color:#0CA2DE;
+}
+ul{
+    list-style-type: none;
+
+}
+#UserInfo a{
+    color:red;overflow: hidden;white-space:nowrap;text-overflow: ellipsis;width: 10px;
+}
+#right li{
+    display:inline;
+}
+#mr ul {
+    display: inline-block;
+    width: 800px;
+    height: 35px;
+    padding: 0;
+    margin: 0 0 0 25px;
+    line-height: 35px;
+}
+#mr ul li{
+    display:inline;
+    padding-left: 20px;
+}
+#right a{
+    color:#5F5F5F;
+    text-decoration:none;
+}
+#mr a{
+    color:#5F5F5F;
+    text-decoration:none;}
+#top p{
+    line-height: 25px;
+    border-bottom: 1px dotted;
+}
+
+li a:hover{   /* ����ڳ���������ͣʱ��������*/
+    text-decoration:underline;
+    color:#0000e0;
+}
+
+.fl{
+    float: left;
+}
+.fr {
+    float: right;
+}
+
+table {
+    border-collapse: collapse;
+    position: relative;
+    border-spacing: 0;
+    border: 0;
+    text-align: center;
+    width: 937px;
+}
+a{
+    text-decoration: none;
+}
+th, td {
+    border: 1px solid #CADEFF;
+}
+th {
+    background: #e2f2ff;
+    border-top: 3px solid #a7cbff;
+    height: 40px;
+}
+td {
+    padding: 25px 10px;
+    color: #444;
+}
+tbody tr {
+    background: RGB(238,246,255);
+}
+.checkbox {
+    width: 60px;
+}
+.goods {
+    width: 300px;
+}
+.goods span {
+    width: 180px;
+    margin-top: 20px;
+    text-align: left;
+    float: left;
+}
+.price {
+    width: 130px;
+}
+.count {
+    width: 90px;
+}
+.count .add, .count input, .count .reduce {
+    float: left;
+    margin-right: -1px;
+    position: relative;
+    z-index: 0;
+}
+.count .add, .count .reduce {
+    height: 23px;
+    width: 17px;
+    border: 1px solid #e5e5e5;
+    background: #f0f0f0;
+    text-align: center;
+    line-height: 23px;
+    color: #444;
+}
+.count .add:hover, .count .reduce:hover {
+    color: #f50;
+    z-index: 3;
+    border-color: #f60;
+    cursor: pointer;
+}
+.count input {
+    width: 50px;
+    height: 15px;
+    line-height: 15px;
+    border: 1px solid #aaa;
+    color: #343434;
+    text-align: center;
+    padding: 4px 0;
+    background-color: #fff;
+    z-index: 2;
+}
+.subtotal {
+    width: 150px;
+    color: red;
+    font-weight: bold;
+}
+.operation {
+    width: 80px;
+}
+.operation span:hover, a:hover {
+    cursor: pointer;
+    color: red;
+    text-decoration: underline;
+}
+
+
+.foot {
+    width: 935px;
+    margin-top: 100px;
+    color: #666;
+    height: 48px;
+    border: 1px solid #c8c8c8;
+    background-color: #eaeaea;
+    background-image:linear-gradient(RGB(241,241,241),RGB(226,226,226));
+
+    z-index: 8;
+}
+.foot div, .foot a {
+    line-height: 48px;
+    height: 48px;
+}
+.foot .select-all {
+    width: 100px;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 5px;
+    color: #666;
+}
+.foot .closing {
+    border-left: 1px solid #c8c8c8;
+    width: 100px;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    background: RGB(238,238,238);
+    cursor: pointer;
+}
+.foot .total{
+    margin: 0 20px;
+    cursor: pointer;
+}
+.foot  #priceTotal, .foot #selectedTotal {
+    color: red;
+    font-family: "Microsoft Yahei";
+    font-weight: bold;
+}
+.foot .selected {
+    cursor: pointer;
+}
+.foot .selected .arrow {
+    position: relative;
+    top:-3px;
+    margin-left: 3px;
+}
+.foot .selected .down {
+    position: relative;
+    top:3px;
+    display: none;
+}
+.show .selected .down {
+    display: inline;
+}
+.show .selected .up {
+    display: none;
+}
+.foot .selected:hover .arrow {
+    color: red;
+}
+.foot .selected-view {
+    width: 935px;
+    border: 1px solid #c8c8c8;
+    position: absolute;
+    height: auto;
+    background: #ffffff;
+    z-index: 9;
+    bottom: 48px;
+    left: -1px;
+    display:none;
+}
+.show .selected-view {
+    display: block;
+}
+.foot .selected-view div{
+    height: auto;
+}
+.foot .selected-view .arrow {
+    font-size: 16px;
+    line-height: 100%;
+    color:#c8c8c8;
+    position: absolute;
+    right: 330px;
+    bottom: -9px;
+}
+.foot .selected-view .arrow span {
+    color: #ffffff;
+    position: absolute;
+    left: 0px;
+    bottom: 1px;
+}
+#selectedViewList {
+    padding: 20px;
+    margin-bottom: -20px;
+}
+#selectedViewList div{
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 80px;
+    border: 1px solid #ccc;
+    margin: 10px;
+}
+#selectedViewList div span {
+    display: none;
+    color: #ffffff;
+    font-size: 12px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 60px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    background: RGBA(0,0,0,.5);
+    cursor: pointer;
+}
+#selectedViewList div:hover span {
+    display: block;
+}
+
+#submitBtn{
+    width: 100px;
+    height: 50px;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    background-color: #c72015;
+    cursor: pointer;
+}
+#foo{
+    margin-top: 100px;
+    width: 1340px;
+    height: 140px;
+    display: flex;
+    flex-direction: row;
+    background-color: #f0f0f0;
+}
+.footMin1{
+    width: 220PX;
+    height: 140px;
+    margin-left: 90px;
+    cursor: pointer;
+}
+footer{
+    margin: auto;
+    width: 1000px;
+    height: 50px;
+    margin-top: 70px;
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.5;
+}
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增加地址</title>
+    <link rel="icon" type="image/x-icon" href="/images/速康logo.jpg" >
+    <link rel="stylesheet" href="/stylesheets/addAddress.css"/>
+    <script src="/javascripts/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=2.0&ak=H9G5X4tyPuhvHosMGue3B4RcImb2ZOod"></script>
+    <script>
+        $(document).ready(function () {
+            $.get("/users/Session", function (data, status) {
+                console.log("数据: " + data + "\n状态: " + status);
+                $("#UserInfo").html(data);
+            });
+        });
+    </script>
+</head>
+<body onload="Time()">
+<div id="page">
+    <div id="top">
+        <div id="left">
+            当前位置
+            <div id="demo">[正在定位..]</div>
+            <div id="allmap"></div>
+        </div>
+        <div id="right">
+            <ul>
+                <div class="right1"><span id="UserInfo"></span>&nbsp;</div>
+                <div class="right2">
+                    <li><a href="/goods/UserOrder">我的订单</a> |</li>
+                    <li><a href="/users/ShowUser">个人中心 |</a></li>
+                    <li><a href="/Help">帮助中心</a> |</li>
+                    <!--<li style="color:#C7A875">400-007-1234 |</li>-->
+                    <li>手机APP |</li>
+                    <li><a href="/users/glyLogin">管理员</a></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <div id="menu1">
+        <div id="div1">
+            <a href="/"> <img src="/images/速康logo.jpg" alt="" style="width: 80px;height: 80px"></a></div>
+        <div id="div2"> |</div>
+        <div id="div3"> 速康送药<br>您身边的<br>健康专家！</div>
+        <a href="/goods/searchGood">
+            <div id="div4"><input type="text" placeholder="   &nbsp请输入商品名"
+                                  style="width: 380px;height: 40px;border:2px solid #0CA2DE;font-size: 14px;"></div>
+            <div id="div5"><img src="/images/search.png"
+                                style="padding-left: 18px;padding-top: 11px;width: 20px;height: 20px;"></div></a>
+        <div id="div6">
+            <div style="float: left;padding-top: 20px;"><img src="/images/电话.png" alt=""></div>
+            <div style="float: left;margin-top: -5px;"><P style="font-size: 20px">400-010-1234 选药品<br><b>60</b>分钟内免费送到家
+                </P></div>
+        </div>
+    </div>
+    <hr>
+    <h3 style="margin-left: 245px">添加收货地址</h3>
+    <div class="middle">
+    <form action="/goods/address" method='post' style="width:400px;height: 300px;margin: 50px auto 20px;">
+        收 货 人： <input type="text" name="UserName" id="UserName"><br><br>
+        电&nbsp;&nbsp;话： <input type="text" name="Tel" id="Tel"><br><br>
+        收货地址： <input type="text" name="Address" id="Address"><br><br>
+        <input type="submit" value="保  存" style="height: 40px;border:none;font-size: 16px;;margin-left: 60px;background-color: #7aa4e0;color:white">
+    </form>
+    </div>
+    <div id="foo">
+        <div class="footMin1" style="margin-left: 105px">
+            <img src="/images/foot1.png" alt="" width="220" height="130"/>
+        </div>
+        <div class="footMin1">
+            <img src="/images/foot2.png" alt="" width="220" height="130"/>
+        </div>
+        <div class="footMin1">
+            <img src="/images/foot3.png" alt="" width="220" height="130"/>
+        </div>
+        <div class="footMin1">
+            <img src="/images/foot4.png" alt="" width="220" height="130"/>
+        </div>
+    </div>
+
+    <footer>
+        关于我们丨 友情链接丨 联系我们丨 诚聘英才丨 帮助中心丨 <br/>
+        苏州市公安局备案编号110105014669丨苏ICP备14030992号丨互联网药品信息服务资格证编号（苏)-非经营性-2016-0912 <br/>
+        Copyright @ 2014-2016 速康送药 4000000511.com版权所有
+    </footer>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398, 39.897445);
+    map.centerAndZoom(point, 12);
+
+    function myFun(result) {
+        var cityName = result.name;
+        map.setCenter(cityName);
+        document.getElementById('demo').innerHTML = '[' + cityName + ']';
+    }
+    var myCity = new BMap.LocalCity();
+    myCity.get(myFun);
+</script>

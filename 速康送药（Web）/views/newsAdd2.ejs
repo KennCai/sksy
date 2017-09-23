@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>添加文章</title>
+    <link rel="icon" type="image/x-icon" href="/images/速康logo.jpg" >
+    <link type="text/css" rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet"
+          href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+    <script src="/javascripts/jquery-3.1.0.min.js"></script>
+    <script charset="utf-8" src="/lib/kindeditor-4.1.10/kindeditor.js"></script>
+    <script charset="utf-8" src="/lib/kindeditor-4.1.10/lang/zh_CN.js"></script>
+
+    <script>
+        var options = {
+            uploadJson: '/uploadImg'
+        };
+        KindEditor.ready(function (K) {
+            window.editor = K.create('#editor', options);
+        });
+    </script>
+</head>
+<body>
+<%- include ../head.ejs %>
+
+
+
+
+<div class="page-header">
+    <h2 style="color: grey;font-size: 30px;text-align: center">添加资讯</h2>
+</div>
+
+<div class="container" style="
+     border: 1px solid  grey;
+    /*border-radius: 10px ;*/
+    -webkit-box-shadow:0 0 1px  1px grey;
+    -moz-box-shadow:0 0 1px  1px grey;
+     box-shadow:0 0 1px 1px grey;
+     margin-top: 10px;margin-bottom: 40px">
+
+    <!--<form class="form-horizontal" method='post' action='javascript:;' role="form" id="frmUploadFile">-->
+    <!--<form action="/p/users/UserRegister" method="post" enctype="multipart/form-data">-->
+
+    <form action="/users/addNews" method="post">
+        <div class="form-group">
+            <label class="control-label col-sm-2">*标题：</label>
+            <div class="col-sm-10">
+                <input type="text"  style="width:700px;" name="Title" value="" class="form-control"/>
+            </div>
+            <!--<label class="alert alert-warning"></label>-->
+        </div>
+        <!--<div class="form-group">-->
+            <!--<label class="control-label col-sm-2">*作者：</label>-->
+            <!--<div class="col-sm-10">-->
+                <!--<input type="text"  style="width:700px;" name="Writer" value="" class="form-control"/>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<label class="alert alert-warning"></label>&ndash;&gt;-->
+        <!--</div>-->
+
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">*内容：</label>
+            <div class="col-sm-10">
+            <textarea id="editor" name="Icontent" style="width:700px;height:300px;">
+                请输入内容
+            </textarea>
+            </div>
+            <!--<label class="alert alert-warning"></label>-->
+        </div>
+
+        <!--<div class="form-group">-->
+            <!--<label class="control-label col-sm-2">*时间：</label>-->
+            <!--<div class="col-sm-10">-->
+                <!--<input type="text"  style="width:700px;" name="InfoTime" value="" class="form-control"/>-->
+            <!--</div>-->
+
+        <!--</div>-->
+
+
+        <div class="form-group">
+
+            <div class="col-sm-10" style="margin-bottom: 20px;margin-top: 20px;margin-left: 470px;">
+                    <input style="border-radius: 5px;border: none; width: 150px;height: 30px;font-size: 16px;background-color: #377ab4;color: white;" type="submit" value="添加"/>
+
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

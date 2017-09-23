@@ -1,0 +1,99 @@
+body{
+    font-size: 12px;margin:0 auto;width:100%;
+}
+a{
+    text-decoration: none;cursor: pointer;
+}
+.zc-link:hover{
+    color: #0083ce;
+}
+header{
+    height: 100px;width: 990px;margin: 0 auto;
+}
+.logo img{
+    width: 80px;height: 80px;
+}
+.s1{
+    width: 987px;min-height:363px;position: relative;border: #e3e3e3 1px solid;border-top:#0077ff 2px solid;
+    background:url("../images/1.png") no-repeat;box-shadow: -1px 10px 10px #efefef;margin: 0 auto;
+}
+.lg-title{
+    padding-left: 588px;font-size: 20px;padding-right: 18px;
+}
+.fr{
+    float: right;font-size: 12px;margin-top:5px;
+}
+form{
+    display: block;padding-left: 588px;padding-top: 10px;
+}
+.row{
+    height: 70px;width: 340px;font-size: 14px;position: relative;margin: 0;
+}
+#userName{
+    height: 40px;width: 340px;border: 1px solid #e6e6e6;background: url("../images/regest.png") no-repeat 0 0;
+    background-position: 8px -114px;padding: 6px 12px 6px 40px;
+}
+.empty{
+    height: 16px; float: right;padding-right: 25px; margin-top: -28px;
+    float: right;
+}
+#passWord{
+    height: 40px;width:340px;border: 1px solid #e6e6e6;background: url("../images/regest.png") no-repeat 0 0;
+    background-position: 8px -145px;padding: 6px 12px 6px 40px;
+}
+.Fr{
+    margin-top: -25px;padding-right: 58px;float: right;font-size: 12px;
+}
+.gray{
+    color: #a5a5a5;
+}
+label{
+    cursor: default;
+}
+
+.tw{
+    color: #a5a5a5;padding-left: 5px;
+}
+.btn{
+    width: 340px;font-size: 18px;font-weight: bold;
+}
+.hz{
+    padding-bottom: 15px;
+}
+.hz p{
+    margin-top: 10px;color: #5e5e5e;
+}
+.zfb{
+    background: url("../images/img_zhifu.png") no-repeat;background-position: -48px 0;float: left;
+    margin-right: 18px;width: 39px;height: 39px;
+}
+.zfb:hover{
+    background: url("../images/img_zhifu.png") no-repeat;background-position: -48px -52px ;
+}
+.qq{
+    background: url("../images/img_zhifu.png") no-repeat;background-position: -95px 0;float: left;
+    margin-right: 18px;width: 39px;height: 39px;
+}
+.qq:hover{
+    background: url("../images/img_zhifu.png") no-repeat;background-position: -95px -52px ;
+}
+.wb{
+    background: url("../images/img_zhifu.png") no-repeat;background-position: -143px 0;float: left;
+    margin-right: 18px;width: 39px;height: 39px;
+}
+.wb:hover{
+    background: url("../images/img_zhifu.png") no-repeat;background-position: -143px -52px;
+}
+.wy{
+    background: url("../images/img_zhifu.png") no-repeat;background-position: -191px 0;float: left;
+    margin-right: 18px;width: 39px;height: 39px;
+}
+.wy:hover{
+    background: url("../images/img_zhifu.png") no-repeat;background-position: -191px -52px;
+}
+
+footer{
+    margin-top: 50px;
+}
+#simplefooter{text-align: center;color: #666;}
+#simplefooter a{color: #666;}

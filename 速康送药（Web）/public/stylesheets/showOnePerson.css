@@ -1,0 +1,218 @@
+body{
+    font-family:"Microsoft Yahei";
+    background-image: url(../images/bg.jpg);
+    background-size: 100% 100%;
+
+}
+#top{
+    margin:0 auto;
+    background-color: #F1F1F1;
+    width: 100%;
+    line-height: 30px;
+    color:#5F5F5F;
+    font-size: 14px;
+}
+#top #left{
+    width: 300px;
+    padding-left:90px;
+}
+
+#demo{
+    margin-top: -30px;
+    margin-left: 60px;
+}
+#top #right{
+    margin-top: -45px;
+}
+#top .right1{
+    display: inline;
+    position: relative;
+    right: -200px;
+    width: 300px;
+}
+
+#top .right2{
+    display: inline;
+    width: 400px;
+    position: absolute;
+    left: 910px;
+}
+ul{
+    list-style-type: none;
+
+}
+#right li{
+    display:inline;
+}
+#right a{
+    color:#5F5F5F;
+    text-decoration:none;
+}
+.head_nav{
+    width: 900px;
+    height: 45px;
+    margin: auto;
+    background-color: aliceblue;
+    border-radius:5px;
+}
+.head_nav ul{
+    padding:0;
+
+}
+.logo{
+    float: left;
+    color:#5a5eff;
+    font-size: 30px;
+    line-height: 30px;
+}
+.head_nav ul li{
+    list-style-type: none;
+    display: block;
+    float: left;
+    padding-right:40px;
+    font-size: 30px;
+    line-height: 30px;
+}
+.head_nav a {
+    text-decoration:none;
+    font-size: 16px;
+}
+.head_nav a:hover {
+    text-decoration:none;color:#f00;
+}
+.container{
+    width: 890px;
+    height: 600px;
+    margin: auto;
+    margin-top: 15px;
+    border: 2px solid #bfbfbf;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #888888,
+                -2px -2px 3px #888;
+}
+.container2{
+    width: 890px;
+    height: 500px;
+    margin: auto;
+    margin-top: 15px;
+    border: 2px solid #bfbfbf;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #888888,
+    -2px -2px 3px #888;
+}
+.box{
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    margin-top: 10px;
+
+}
+.one_Phont{
+    height: 200px;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+}
+.one_showphote{
+    width: 100px;
+    height: 100px;
+    margin-left: 200px;
+}
+/*===============================*/
+.one_name1{
+    width: 100%;
+    height: 50px;
+    margin: -40px 10px 10px 150px;
+}
+.box form label{
+    font-size: 20px;
+
+}
+.kt_1{
+    margin:  -25px 0px 0px 130px;
+    line-height: 30px;
+}
+input{
+    width: 300px;
+    height: 30px;
+    border:2px solid #6289ff;
+    border-radius: 5px;
+}
+/*===============================*/
+
+.one_name2{
+
+    width: 100%;
+    height: 50px;
+    margin: 10px 10px 10px 150px;
+}
+/*===============================*/
+.one_tel{
+
+    width: 100%;
+    height: 50px;
+    margin: 10px 10px 10px 150px;
+}
+.one_sex{
+
+    width: 100%;
+    height: 50px;
+    margin: 10px 10px 10px 150px;
+}
+/*===========================*/
+.one_birthday{
+
+    width: 100%;
+    height: 50px;
+    margin: 10px 10px 10px 150px;
+}
+.kt_2{
+    /*margin-left: 30px;*/
+}
+/*===========================*/
+.one_uploadphoto{
+
+    width: 100%;
+    height: 50px;
+    margin: 10px 10px 10px 20px;
+}
+.one_UpdateAdd{
+
+    width: 100%;
+    height: 50px;
+    margin: 10px 10px 10px 20px;
+}
+/*===========================*/
+.kt_button button{
+    background-color: #5473ba;
+    width: 240px;
+    height: 30px;
+    margin-left: 90px;
+    margin-top: 20px;
+    font-size: 15px;
+    border:none;
+    border-radius: 5px;
+}
+.kt_button button:hover{
+    background-color: #0a50ba;
+    color: white;
+}
+.oldpassword{
+    width: 100%;
+    height: 50px;
+    margin: 100px 10px 10px 20px;
+}
+.newpassword{
+    width: 100%;
+    height: 50px;
+    margin: 30px 10px 10px 20px;
+}
+.newpassword2{
+    width: 100%;
+    height: 50px;
+    margin: 30px 10px 10px 20px;
+}
+.button{
+    margin-left: 100px;
+    margin-top: 30px;
+}

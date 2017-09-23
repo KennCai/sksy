@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示所有商品</title>
+    <link rel="icon" type="image/x-icon" href="/images/速康logo.jpg" >
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/content.css" />
+</head>
+<body marginwidth="0" marginheight="0">
+
+<header>
+    <%- include ../head.ejs %>
+</header>
+
+
+<div class="container">
+    <div class="public-content">
+
+
+        <div class="public-content-header">
+            <h3>显示所有商品信息:</h3>
+        </div>
+            <div  class="public-content-cont">
+                <% if(goods.length>0){%>
+                <table  class="public-cont-table" >
+
+                    <th style="width:10%;text-align: center">商品编号</th>
+                    <th style="width:20%;text-align: center">商品名称</th>
+                    <th style="width:10%;text-align: center">商品价格</th>
+                    <th style="width:10%;text-align: center">商品图片</th>
+                    <th style="width:8%;text-align: center">修改商品</th>
+                    <th style="width:8%;text-align: center">删除商品</th>
+
+                    <% for(var i=0;i<goods.length;i++) {%>
+                    <tr>
+                        <td> <%=goods[i].GoodsId %></td>
+                        <td> <%=goods[i].GoodsName %></td>
+                        <td> ￥<%=goods[i].Price %></td>
+                        <td style="height: 120px;width: 120px"> <img  src="/upload/<%= goods[i].Pic %>"   width="100px"  height="100px"/>
+                        </td>
+                        <td>
+                            <div class="table-fun">
+                            <b><a style="line-height: 16px;color:rgba(24, 19, 213, 0.97)" href="UpdateGoods?GoodsId=<%=goods[i].GoodsId%>">
+                                <b>修改</b>
+                            </a></b>
+                            </div>
+                            </td>
+                        <td>
+                            <div  class="table-fun">
+                        <a  href='/users/queryAllgoods'  style='line-height: 16px;color:rgba(24, 19, 213, 0.97)'
+                           onclick="if(confirm('确认删除吗？')==true){
+                                    this.href='DeleteGoodsId?GoodsId=<%=goods[i].GoodsId%>'
+                                    alert('删除成功');}">删除</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }%>
+                    </table>
+                 <% }%>
+          </div>
+     </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+body{
+    font-size: 12px;
+    margin: 0 auto;
+    width: 1000px;
+}
+header{height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.logo img{width: 80px;height: 80px}
+a{text-decoration: none;cursor: pointer;}
+a:hover{color: #2b669a}
+
+.lg_con{
+    height:45px;
+    background-color: #c4e3f3;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.lg_title{
+    font-size: 25px;
+    padding: 8px;
+}
+.fr{
+    float: right;
+    font-size: 8px;
+    padding-top: 8px;
+}
+
+section{
+     width:  998px;
+     min-height: 507px;
+     position: relative;
+     box-shadow: -1px 3px 10px 3px #efefef;
+}
+/*#userName{
+    height: 28px;width: 305px;border: 1px solid #e6e6e6;background: url("../images/regest.png") no-repeat 0 0;
+    background-position: 8px -114px;padding: 6px 12px 6px 40px;
+}
+#passWord{
+    height: 28px;width:305px;border: 1px solid #e6e6e6;background: url("../images/regest.png") no-repeat 0 0;
+    background-position: 8px -145px;padding: 6px 12px 6px 40px;
+}*/
+.left{
+    /*padding: 2px;*/
+    width: 987px;
+    height: 405px;
+
+    float: left;
+    margin-left: 20px;
+    position: relative;
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+form div{
+    overflow: hidden;
+    clear: both;
+}
+form div label{
+    float: left;
+}
+form div label .text{
+    width: 350px;
+    height: 40px;
+    padding: 0 2px;
+    border: 1px solid #cccccc;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+form div label b{
+    font-weight: normal;
+    font-size: 12px;
+    color: #cccccc;
+    visibility: hidden;
+}
+form div label span{
+    font-size: 20px;
+}
+form div label em{
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+    color: #ffffff;
+    vertical-align: middle;
+    font-style: normal;
+    /*margin-left: 50px;*/
+    width: 53px;
+    height: 15px;
+    line-height: 15px;
+    background: #ffd099;
+}
+
+
+
+form div .active{
+    background-color: #ff6600;
+}
+.msg{
+    line-height: 13px;
+    float: left;
+    margin-left: -340px;
+    margin-top: 70px;
+    display: none;
+}
+#msg{
+    line-height: 13px;
+    float: left;
+    margin-left: 15px;
+    margin-top: 10px;
+    display: none;
+}
+.btn_yz{display: none;}
+.btn_yz_1{width: 200px;height: 60px;}
+.btn_yz_2{width: 200px;height: 60px;}
+.btn_yz_3{width: 200px;height: 60px;}
+
+.right{
+    width:500px;;
+    height: 405px;
+    background: url("../images/2.png")no-repeat;
+    float:right;
+    margin-top: -360px;
+    border-color: #2aabd2;
+}
+#registerButton{
+    width: 350px;
+    height: 43px;
+    background-color:#428ac9;
+    font-size: 20px;
+    color:white;
+    margin : 20px auto;
+    border: none;
+}
+#registerButton:hover{background-color: #3a7ab1;}
+
+
+.a_zfb, .a_qq, .a_xl, .a_wy{
+    background:url(../images/img_zhifu.png) no-repeat left top;
+    display: block;
+    float: left;
+    border:medium none;
+    height: 39px;
+    margin-right: 18px;
+    width: 39px;
+}
+a.a_zfb{background-position: -48px 0;}
+a.a_zfb:hover{background-position: -48px -52px;}
+a.a_qq{background-position: -95px 0;}
+a.a_qq:hover{background-position: -95px -52px;}
+a.a_xl{background-position: -143px 0;}
+a.a_xl:hover{background-position: -143px -52px;}
+a.a_wy {background-position: -191px 0;  }
+a.a_wy:hover {background-position: -191px -52px;  }
+footer{
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+#simple_footer{
+    width: 987px;
+    height: 100px;
+    /*background-color: #2aabd2;*/
+    position: absolute;
+    margin-top:  20px;
+    text-align: center;
+}
+
+#simple_footer a{color: #666;}

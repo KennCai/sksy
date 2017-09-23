@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>管理员</title>
+    <link rel="icon" type="image/x-icon" href="/images/速康logo.jpg" >
+    <script src="/javascripts/jquery-3.1.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.get("/users/S", function (data, status) {
+                console.log("数据: " + data + "\n状态: " + status);
+                $("#AdminInf").html(data);
+            });
+        });
+    </script>
+</head>
+<title>Title</title>
+<body>
+<header>
+    <%- include ../head.ejs %>
+</header>
+<section style="text-align: center;margin-top: 180px">
+    <div style="font-size: 60px;font-family: '华文行楷';line-height: 80px">欢迎登录 <br>《速康送药》后台管理系统</div>
+</section>
+<!--<section style="text-align: center;margin-top: 200px">-->
+    <!--<div style="font-size: 60px;font-family: '华文行楷'">欢迎登录后台管理系统</div>-->
+<!--</section>-->
+</body>
+</html>

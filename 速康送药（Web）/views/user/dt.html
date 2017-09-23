@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>-->
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=0.3, maximum-scale=0.3, user-scalable=0">
+    <title>速康介绍</title>
+    <link rel="icon" type="image/x-icon" href="/images/速康logo.jpg" >
+    <link rel="stylesheet" href="/stylesheets/dt.css"/>
+    <link rel="stylesheet" href="/stylesheets/jquery.fullPage.css"/>
+
+
+
+
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.6/jquery.fullPage.css"/>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.6/jquery.fullPage.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.8.6/vendors/jquery.easings.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/move.js/0.5.0/move.js"></script>-->
+
+</head>
+<body>
+
+
+<div id="header"><a href="/" style="text-decoration: none">进入<br/>商城</a></div>
+
+
+<div id="fullpage">
+    <div class="section section1">
+        <h1 class="row8">速康送药</h1>
+        <p class="row1">送货最快</p>
+        <p class="row2">服务最专业</p>
+        <p class="row3">顾客体验最佳</p>
+         <img class="row7" style="margin-top: -40px" src="/images/速康.jpg" alt="" width="100px" height="100px"/>
+        <p class="row4">好医·好药·好健康</p>
+        <p class="row5">药品最全</p>
+        <p class="row6">100%正品</p>
+    </div>
+
+    <div class="section section2">
+        <h1 class="row1">正品保险</h1>
+        <p  class="row2">购物有保险、假货包理赔。我们视金钱如粪土，却视质量如生命，保障多一重，安全更放心！</p>
+        <img  class="row3" src="/images/card.png"  alt=""/>
+    </div>
+    <div class="section section3">
+        <h1 class="row1">急速送达</h1>
+        <p  class="row2">我们将以最快的速度把药品送到您的手中。</p>
+        <img class="row3" src="/images/timg.jpg" alt=""/>
+    </div>
+    <div class="section section4">
+        <h1 class="row1">隐私包装</h1>
+          <p class="row2">速康送药所有商品均是实行保密包装，充分保护您的商品信息。您的隐私，我的责任！</p>
+         <h2 class="row3">我们承诺：</h2>
+         <p class="row4">1.外包装无任何商品名称及信息；</p>
+        <p class="row5">2.外包装无“速康送药”字样；</p>
+        <p class="row6">3.配备专业的恒温恒湿进口保湿箱，保证送药过程的专业和安全。</p>
+      <div class="row7">密</div>
+    </div>
+</div>
+<script src="/javascripts/jquery-3.1.0.min.js"></script>
+<script src="/javascripts/jquery.fullPage.js"></script>
+<script src="/javascripts/move.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#fullpage").fullpage({
+//            sectionsColor:['green','red','blue','yellow'],
+            verticalCentered:false,
+            resize:true,  //字体缩放
+            scrollingSpeed:700,    //700默认
+            anchors:['page1','page2','page3','page4'],    //锚链接
+            navigation:true,
+            navigationTooltips:['速康送药','正品保险','急速送达','隐私包装'],
+
+
+            afterLoad:function(link,index){
+                switch(index){
+                    case 1:
+                        $('.section1').find('.row1').fadeIn(200);
+                        $('.section1').find('.row2').fadeIn(300);
+                        $('.section1').find('.row3').fadeIn(300);
+                        $('.section1').find('.row4').fadeIn(500);
+                        $('.section1').find('.row5').fadeIn(1000);
+                        $('.section1').find('.row6').fadeIn(1000);
+                        $('.section1').find('.row7').fadeIn(500);
+                        move('.section1 .row8').scale('1.5').end();
+                        setTimeout(function(){move('.section1 .row8').scale(1).end();}, 500);
+                        break;
+                    case 2:
+                        move('.section2 .row1').set('margin-right', "440px").set('color','white').end();
+                        move('.section2 .row2').translate(300, 100).set('color','white').end();
+                        move('.section2 .row3').rotate(360).end();
+                        break;
+                    case 3:
+                        move('.section3 .row1').set('margin-right', '440px').set('color','white').end();
+                        move('.section3 .row2').translate(300, 100).set('color','white').end();
+                        move('.section3 .row3').x(0).y(-500).end();
+                        setTimeout(function(){move('.section3 .row3').x(0).y(-400).end();
+                        }, 500);
+                        break;
+                    case 4:
+                        move('.section4 .row1').set('margin-right', '440px').set('color','red').end();
+                        move('.section4 .row2').translate(300, 100).set('color','red').end(
+                               function(){ move('.section4 .row3').translate(0, 180).set('color','red').end(
+                               function(){ move('.section4 .row4').translate(0, 230).set('color','red').end(
+                               function(){ move('.section4 .row5').translate(-6, 280).set('color','red').end(
+                               function(){ move('.section4 .row6').translate(-6, 330).set('color','red').end(
+                               function(){ move('.section4 .row7').translate(-333, 330).set('color','red').scale(3).end(
+                               function(){ move('.section4 .row7').set('background-color','red')
+                                                                  .set('color','white').end()}
+                                                        )}
+
+                                                   )}
+                                            )}
+                                      )}
+                               )}
+                        );
+                        break;
+                    default:
+                        break;
+                }
+            },
+            onLeave:function(index,nextIndex) {
+                switch(nextIndex) {
+                    case 1:
+                        $('.section1').find('.row1').hide(100);
+                        $('.section1').find('.row2').hide(200);
+                        $('.section1').find('.row3').hide(200);
+                        $('.section1').find('.row4').hide(300);
+                        $('.section1').find('.row5').hide(400);
+                        $('.section1').find('.row6').hide(400);
+                        $('.section1').find('.row7').hide(300);
+                        break;
+                    case 2:
+                        move('.section2 .row1').set('margin-right', "-60px").set('color','black').end();
+                        move('.section2 .row2').translate(-300, -100).set('color','black').end();
+                        move('.section2 .row3').rotate(0).end();
+                        break;
+                    case 3:
+                        move('.section3 .row1').set('margin-right', "-60px").set('color', 'black').end();
+                        move('.section3 .row2').translate(-300, -100).set('color','black').end();
+                        move('.section3 .row3').x(0).y(500).end();
+                        break;
+                    case 4:
+                        move('.section4 .row1').set('margin-right', "-60px").set('color', 'black').end();
+                        move('.section4 .row2').translate(-300, -100).set('color','black').end();
+                        move('.section4 .row3').translate(0, -180).set('color','red').end();
+                        move('.section4 .row4').translate(0, -230).set('color','red').end();
+                        move('.section4 .row5').translate(6, -280).set('color','red').end();
+                        move('.section4 .row6').translate(6, -330).set('color','red').end();
+                        move('.section4 .row7').translate(333, -330).set('color','red').scale(1).end();
+                        move('.section4 .row7').set('background-color','white')
+                                               .set('color','red').end();
+                        break;
+                    default:
+                        break;
+
+                    }
+                }
+
+        });
+    });
+
+
+
+</script>
+</body>
+</html>

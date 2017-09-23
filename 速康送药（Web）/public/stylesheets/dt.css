@@ -1,0 +1,173 @@
+
+.section{
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+    text-align: center;
+}
+#header{
+    text-align: center;
+    width: 48px;
+    height: 44px;
+    z-index: 2;
+    position: fixed;
+    background-color: #fdd8ff;
+    border-radius:25px;
+    color: #7190ff;
+    font-size: 16px;
+    padding-top:6px ;
+    padding-left: 2px;
+    margin-top: 590px;
+    margin-left: 670px;
+    cursor: pointer;
+}
+#header:hover{
+    background-color: #dfbfe1;
+    color: #5870c6;
+}
+.section1{
+    background: url("../images/dt.jpg") no-repeat center;
+    background-size:cover;
+    position: relative;
+
+}
+.section1 .row1{
+    margin-top: 45px;
+    margin-left: -160px;
+    font-size: 29px;
+    color: white;
+    opacity: 0.2;
+
+}
+.section1 .row2{
+    margin-top: 25px;
+    margin-left: -590px;
+    font-size: 33px;
+    color: white;
+    opacity: 0.2;
+
+}
+.section1 .row3{
+
+    margin-top: -35px;
+    margin-left: 850px;
+    font-size: 31px;
+    color: #1e57d0;
+
+}
+.section1 .row4{
+
+    font-size: 25px;
+    color: white;
+    opacity: 0.8;
+
+}
+.section1 .row5{
+    margin-top: 25px;
+    margin-left: -450px;
+    font-size: 46px;
+    color: white;
+    opacity: 0.3;
+
+}
+.section1 .row6{
+    margin-top: -100px;
+    margin-left: 300px;
+    font-size: 65px;
+    color: white;
+    opacity: 0.3;
+}
+.section1 .row7{
+    width: 160px;
+    height: 160px;
+    background-color: white;
+    border-radius: 80px;
+}
+
+.section1 .row8{
+    margin-left: -840px;
+    font-size: 40px;
+    color: white;
+    opacity: 0.7;
+}
+
+.section2{
+    background-color: #8cc439;
+    background-size:cover;
+    position: relative;
+}
+.section2 .row1{
+    margin-left: -500px;
+}
+.section2 .row2{
+    margin-top: -100px;
+    margin-left: -1000px;
+}
+
+.section2 .row3{
+    margin-top: 150px;
+}
+.section3{
+    background-color: #e64542;
+    background-size:cover;
+    position: relative;
+}
+.section3 .row1{
+    margin-left: -500px;
+}
+.section3 .row2{
+    margin-top: -100px;
+    margin-left: -1360px;
+}
+
+.section3 .row3{
+
+    margin-top: 600px;
+
+}
+
+
+
+
+.section4{
+    background:url(../images/section4.jpg) no-repeat center;
+    background-size:cover;
+    position: relative;
+}
+
+.section4 .row1{
+    margin-left: -500px;
+}
+.section4 .row2{
+    margin-top: -100px;
+    margin-left: -1065px;
+}
+.section4 .row3{
+    margin-top: -50px;
+
+}
+.section4 .row4{
+    margin-top: -50px;
+
+}
+.section4 .row5{
+    margin-top: -50px;
+
+}
+.section4 .row6{
+    margin-top: -50px;
+
+}
+
+.section4 .row7{
+    margin-left: 1000px;
+    margin-top: -30px;
+    width: 50px;
+    height: 50px ;
+    border-radius: 25px;
+    border: solid 1px red;
+    font-size: 40px
+}
+.section4 .row7:hover{
+    opacity: 0;
+}

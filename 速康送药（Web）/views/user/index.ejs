@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="icon" type="image/x-icon" href="/images/速康logo.jpg" >
+    <link rel="stylesheet" href="/stylesheets/top.css"/>
+    <link rel="stylesheet" href="/stylesheets/index.css"/>
+    <script language="JavaScript" src="/javascripts/index.js"></script>
+    <script src="/javascripts/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=2.0&ak=H9G5X4tyPuhvHosMGue3B4RcImb2ZOod"></script>
+    <script src="/javascripts/myfocus-2.0.4.min.js"></script>
+    <style type="text/css">
+        #myFocus {
+            width: 740px;
+            height: 368px;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        function Time() {
+            var now = new Date();
+            var h = now.getHours();
+            var m = now.getMinutes();
+            var s = now.getSeconds();
+            var h = checkTime(h);
+            var m = checkTime(m);
+            var s = checkTime(s);
+            document.getElementById('time').innerHTML = h + "时" + m + "分" + s + "秒";
+            window.setTimeout("Time()", 1000);
+        }
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        myFocus.set({
+            id: 'myFocus',//ID
+            pattern: 'mF_fancy',//风格
+            time: 2
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $.get("/users/Session", function (data, status) {
+                console.log("数据: " + data + "\n状态: " + status);
+                $("#UserInfo").html(data);
+            });
+        });
+    </script>
+</head>
+<body onload="Time()">
+<div id="page">
+    <div id="top">
+        <div id="left">
+            当前位置
+            <div id="demo">[正在定位..]</div>
+            <div id="allmap"></div>
+        </div>
+        <div id="right">
+            <ul>
+                <div class="right1"><span id="UserInfo"></span>&nbsp;</div>
+                <div class="right2">
+                    <li><a href="/goods/UserOrder">我的订单</a> |</li>
+                    <li><a href="/users/ShowUser">个人中心 |</a></li>
+                    <li><a href="/Help">帮助中心</a> |</li>
+                    <!--<li style="color:#C7A875">400-007-1234 |</li>-->
+                    <li>手机APP |</li>
+                    <li><a href="/users/glyLogin">管理员</a></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div id="menu1">
+        <div id="div1">
+            <a href="/"> <img src="/images/速康logo.jpg" alt="" style="width: 80px;height: 80px"></a></div>
+        <div id="div2"> |</div>
+        <div id="div3"> 速康送药<br>您身边的<br>健康专家！</div>
+        <a href="/goods/searchGood">
+        <div id="div4"><input type="text" placeholder="   &nbsp请输入商品名"
+                              style="width: 380px;height: 40px;border:2px solid #0CA2DE;font-size: 14px;"></div>
+        <div id="div5"><img src="/images/search.png"
+                            style="padding-left: 18px;padding-top: 11px;width: 20px;height: 20px;"></div></a>
+        <div id="div6">
+            <div style="float: left;padding-top: 20px;"><img src="/images/电话.png" alt=""></div>
+            <div style="float: left;margin-top: -5px;"><P style="font-size: 20px">400-010-1234 选药品<br><b>60</b>分钟内免费送到家
+                </P></div>
+        </div>
+    </div>
+    <hr>
+    <div id="menu2">
+        <div id="ml">
+            <div style="float: left">全部商品分类&nbsp;</div>
+            <div style="float: left"><img src="/images/菜单.png" alt="" width="25px" height="25px" align="center"></div>
+        </div>
+        <div id="mr">
+            <ul>
+                <li><a href="/" style="color: #ffffff">首页</a>&nbsp;</li>
+                <li><a href="/users/Hdzq" style="color: #ffffff">活动专区</a>&nbsp;</li>
+                <li><a href="/users/Health" style="color: #ffffff">健康资讯</a>&nbsp;</li>
+                <li><a href="/users/Flow" style="color: #ffffff">购药指南</a>&nbsp;</li>
+                <li><a href="/users/Gywm" style="color: #ffffff">关于我们</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="middle">
+        <div id="middleL">
+            <div class="sidebar">
+                <ul style="padding: 0">
+                    <li><a href="#"><img src="images/呼吸系统.png" style="width: 18px;height: 18px"> &nbsp;呼吸道疾病</a><span class="hover"></span>
+                        <ul class="sub-menu">
+                            <li><a href="/goods/AllGoods">感冒发烧</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">咳嗽</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">上火</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">小儿感冒</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">哮喘</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">支气管炎</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">慢性阻塞性肺病</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="images/肠胃用药.png" style="width: 18px;height: 18px"> &nbsp;消化系统疾病</a><span class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -76px">
+                            <li><a href="/goods/AllGoods">胃炎</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">胃肠溃疡</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">结肠炎</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">消化不良</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">便秘</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">腹泻</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">痔疮</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">小儿肠胃病</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="images/皮肤病.png" style="width: 18px;height: 18px"> &nbsp;皮肤病</a><span class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -114px">
+                            <li><a href="/goods/AllGoods">皮炎癣症</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">银屑病</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">痤疮</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">白癜风</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">黄褐斑</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">疤痕</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">灰指甲</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">烧烫创伤</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">过敏</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="images/运动风湿骨科.png" style="width: 18px;height: 18px"> &nbsp;运动风湿骨科</a><span class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -152px">
+                            <li><a href="/goods/AllGoods">风湿类风湿</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">骨关节炎</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">跌打骨伤</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">腰椎病</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">骨质疏松</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">痛风</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">外用贴膏</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">骨质增生</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">股骨头坏死</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="images/五官科.png" style="width: 18px;height: 18px"> &nbsp;五官科疾病</a><span class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -190px">
+                            <li><a href="/goods/AllGoods">鼻炎</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">咽喉炎</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">眼干眼涩</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">耳聋耳鸣</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">口腔溃疡</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">牙周痛病</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">眼部炎症</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">白内障</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods">视网膜病变</a><span class="hover"></span></li>
+                            <li><a href="/goods/AllGoods"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="images/口腔护理.png" style="width: 18px;height: 18px"> &nbsp;口腔护理</a><span class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -228px">
+                            <li><a href="#">牙膏</a><span class="hover"></span></li>
+                            <li><a href="#">牙刷</a><span class="hover"></span></li>
+                            <li><a href="#">漱口水</a><span class="hover"></span></li>
+                            <li><a href="#">牙线</a><span class="hover"></span></li>
+                            <li><a href="#">假牙护理</a><span class="hover"></span></li>
+                            <li><a href="#">进口口腔</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="images/面部护理.png" style="width: 18px;height: 18px"> &nbsp;面部护理</a><span class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -266px">
+                            <li><a href="#">祛痘</a><span class="hover"></span></li>
+                            <li><a href="#">祛疤</a><span class="hover"></span></li>
+                            <li><a href="#">抗敏</a><span class="hover"></span></li>
+                            <li><a href="#">祛斑</a><span class="hover"></span></li>
+                            <li><a href="#">去黑头</a><span class="hover"></span></li>
+                            <li><a href="#">去黑眼圈</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#"><img src="images/儿科用药.png" style="width: 18px;height: 18px"> &nbsp;儿科用药</a><span class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -304px">
+                            <li><a href="#">儿童呼吸道疾病</a><span class="hover"></span></li>
+                            <li><a href="#">儿童消化道疾病</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="images/医药保健.png" style="width: 18px;height: 18px"> &nbsp;滋补保健</a><span class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -342px">
+                            <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                            <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                            <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                            <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                            <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                            <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="images/医疗器械.png" style="width: 18px;height: 18px;"> &nbsp;医疗器械</a><span class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -380px">
+                            <li><a href="#">高血压</a><span class="hover"></span></li>
+                            <li><a href="#">脑血管病</a><span class="hover"></span></li>
+                            <li><a href="#">冠心病</a><span class="hover"></span></li>
+                            <li><a href="#">高血脂</a><span class="hover"></span></li>
+                            <li><a href="#">心绞痛</a><span class="hover"></span></li>
+                            <li><a href="#">静脉曲张</a><span class="hover"></span></li>
+                            <li><a href="#">心力衰竭</a><span class="hover"></span></li>
+                            <li><a href="#">血液病</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="middleC">
+            <div id="myFocus"><!--焦点图盒子-->
+                <div class="loading"></div><!--载入画面(可删除)-->
+                <div class="pic"><!--图片列表-->
+                    <ul>
+                        <li><a href="#1"><img src="/images/mid1.jpg" width="740" height="380px"/></a></li>
+                        <li><a href="#2"><img src="/images/mid2.jpg" width="740" height="380px"/></a></li>
+                        <li><a href="#3"><img src="/images/mid3.jpg" width="740" height="380px"/></a></li>
+                        <li><a href="#4"><img src="/images/mid4.jpg" width="740" height="380px"/></a></li>
+                        <li><a href="#5"><img src="/images/mid5.jpg" width="740" height="380px"/></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="middleR">
+            <img src="/images/middleR.png" alt="" width="215" height="380"/>
+        </div>
+
+        <div id="side">
+            <a href="http://www.jiathis.com/share" class="jiathis">
+                <div id="side1" title="分享"></div>
+            </a>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1" charset="utf-8"></script>
+            <a href="/users/Tlogin">
+                <div id="side2" title="购物车"></div>
+            </a>
+            <div id="side3" title="回到顶部"></div>
+        </div>
+    </div>
+</div>
+
+<div id="dayTj">
+    <div id="dayTime">
+        <div id="time" style="width: 200px;height: 50px;margin-top: 30px"></div>
+        <span style="font-weight:700;margin-left: 5px">今日限时购</span> <br/>
+        <span style="font-size:14px">每日10点更新</span>
+    </div>
+    <div id="dayClass1">
+        <a href="/goods/AllGoods"><img src="/images/dayTj1.jpg" alt="" width="237" height="150"/></a>
+    </div>
+    <div id="dayClass2">
+        <a href="/goods/AllGoods"><img src="/images/dayTj2.jpg" alt="" width="237" height="150"/></a>
+    </div>
+    <div id="dayClass3">
+        <a href="/goods/AllGoods"><img src="/images/dayTj3.jpg" alt="" width="237" height="150"/></a>
+    </div>
+    <div id="dayClass4">
+        <a href="/goods/AllGoods"><img src="/images/dayTj4.jpg" alt="" width="237" height="150"/></a>
+    </div>
+</div>
+<div id="img">
+    <img src="/images/img.jpg" alt="" width="1155" height="75"/>
+</div>
+<div id="btm">
+    <div id="btmLeft">
+        <div id="btmLeftUp">
+            <ul>
+                <li id="color1" onmousemove="busChange(1)" style="background-color: #db0551;color:white;font-weight: bold">精选推荐</li>
+                <li id="color2" style="margin-left: -8px;color:white;font-weight: bold" onmousemove="busChange(2)">特惠商品</li>
+                <li id="color3" style="margin-left: -8px;color:white;font-weight: bold" onmousemove="busChange(3)">当季用药</li>
+                <li id="color4" style="margin-left: -8px;color:white;font-weight: bold" onmousemove="busChange(4)">新品上架</li>
+            </ul>
+        </div>
+        <div id="btmLeftDown">
+            <div id="btmLeftDownMin1">
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods">
+                        <img src="/images/btml1-1.jpg" alt="" width="170" height="150"/></a><br/>
+                    <span style="margin-left: -120px">清脂梅</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:16.0元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:18.0元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods">
+                        <img src="/images/btml1-2.jpg" alt="" width="170" height="150"/></a> <br/>
+                    <span style="margin-left: -100px">胃肠宁片</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:38.8元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:39.8元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods">
+                        <img src="/images/btml1-3.jpg" alt="" width="170" height="150"/></a> <br/>
+                    <span style="margin-left: -110px">肾宝合剂</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:14.5元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:15.0元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods">
+                        <img src="/images/btml1-4.jpg" alt="" width="170" height="150"/></a> <br/>
+                    <span style="margin-left: -90px">咳特灵胶囊</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:19.8元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:20.0元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+            </div>
+            <div id="btmLeftDownMin2">
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods"><img src="/images/btml2-1.jpg" alt="" width="170" height="150"/></a><br/>
+                    <span style="margin-left: -100px">蒲公英片</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:25.0元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:26.0元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods"><img src="/images/btml2-2.jpg" alt="" width="170" height="150"/></a> <br/>
+                    <span style="margin-left: -60px">小二氨酚那敏片</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:18.8元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:19.8元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods"><img src="/images/btml2-3.jpg" alt="" width="170" height="150"/></a> <br/>
+                    <span style="margin-left: -90px">板蓝根颗粒</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:21.5元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:25.8元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods"><img src="/images/btml2-4.jpg" alt="" width="170" height="150"/></a> <br/>
+                    <span style="margin-left: -90px">钙铁锌冲剂</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:31.5元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:32.0元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+            </div>
+            <div id="btmLeftDownMin3">
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods">
+                        <img src="/images/btml1-1.jpg" alt="" width="170" height="150"/></a><br/>
+                    <span style="margin-left: -120px">清脂梅</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:16.0元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:18.0元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods">
+                        <img src="/images/btml1-2.jpg" alt="" width="170" height="150"/></a> <br/>
+                    <span style="margin-left: -100px">胃肠宁片</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:38.8元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:39.8元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods">
+                        <img src="/images/btml1-3.jpg" alt="" width="170" height="150"/></a> <br/>
+                    <span style="margin-left: -110px">肾宝合剂</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:14.5元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:15.0元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods">
+                        <img src="/images/btml1-4.jpg" alt="" width="170" height="150"/></a> <br/>
+                    <span style="margin-left: -90px">咳特灵胶囊</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:19.8元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:20.0元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+            </div>
+            <div id="btmLeftDownMin4">
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods"><img src="/images/btml2-1.jpg" alt="" width="170" height="150"/></a><br/>
+                    <span style="margin-left: -100px">蒲公英片</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:25.0元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:26.0元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods"><img src="/images/btml2-2.jpg" alt="" width="170" height="150"/></a> <br/>
+                    <span style="margin-left: -60px">小二氨酚那敏片</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:18.8元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:19.8元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods"><img src="/images/btml2-3.jpg" alt="" width="170" height="150"/></a> <br/>
+                    <span style="margin-left: -90px">板蓝根颗粒</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:21.5元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:25.8元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+                <div class="btmLeftClass">
+                    <a href="/goods/AllGoods"><img src="/images/btml2-4.jpg" alt="" width="170" height="150"/></a> <br/>
+                    <span style="margin-left: -90px">钙铁锌冲剂</span> <br/><br/>
+                    <span style="margin-left: -80px;font-weight: 700">现价:31.5元 </span>
+                    <br/><br/>
+                    <span style="margin-left: -90px;color:#7c7c7c"><s>原价:32.0元</s></span>
+                    <div class="hidden">功效：清除脂肪 减肥瘦身 塑造良好体型</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="btmRight">
+        <img src="/images/btnr.jpg" alt="" width="240" height="300"/>
+    </div>
+</div>
+<span id="span">品牌推荐:</span>
+<div id="brand">
+    <div class="brandClass">
+        <div class="brandClassMin">
+            <img src="/images/pinpai01.jpg" alt=""/></div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai02.jpg" alt=""/>
+        </div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai03.jpg" alt=""/>
+        </div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai04.jpg" alt=""/>
+        </div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai05.jpg" alt=""/>
+        </div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai06.jpg" alt=""/>
+        </div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai07.jpg" alt=""/></div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai08.jpg" alt=""/>
+        </div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai09.jpg" alt=""/></div>
+        <img src="/images/pinpai10.jpg" alt="" width="103px"/>
+    </div>
+    <div class="brandClass" style="border-bottom:none">
+        <div class="brandClassMin">
+            <img src="/images/pinpai11.jpg" alt=""/></div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai12.jpg" alt=""/>
+        </div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai13.jpg" alt=""/>
+        </div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai14.jpg" alt=""/>
+        </div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai15.jpg" alt=""/>
+        </div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai16.jpg" alt=""/>
+        </div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai17.jpg" alt=""/>
+        </div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai18.jpg" alt=""/>
+        </div>
+        <div class="brandClassMin">
+            <img src="/images/pinpai19.jpg" alt=""/></div>
+        <img src="/images/pinpai20.jpg" alt="" width="103px"/>
+    </div>
+</div>
+<div id="foot">
+    <div class="footMin" style="margin-left: 105px">
+        <a href="/users/dt"><img src="/images/foot1.png" alt="" width="220" height="130"/></a>
+    </div>
+    <div class="footMin">
+        <a href="/users/dt"><img src="/images/foot2.png" alt="" width="220" height="130"/></a>
+    </div>
+    <div class="footMin">
+        <a href="/users/dt"><img src="/images/foot3.png" alt="" width="220" height="130"/></a>
+    </div>
+    <div class="footMin">
+        <a href="/users/dt"><img src="/images/foot4.png" alt="" width="220" height="130"/></a>
+    </div>
+</div>
+
+<footer>
+    关于我们丨 友情链接丨 联系我们丨 诚聘英才丨 帮助中心丨 <br/>
+    苏州市公安局备案编号110105014669丨苏ICP备14030992号丨互联网药品信息服务资格证编号（苏)-非经营性-2016-0912 <br/>
+    Copyright @ 2014-2016 速康送药 4000000511.com版权所有
+</footer>
+<script language="JavaScript" src="/javascripts/index2.js"></script>
+</body>
+</html>
+
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398, 39.897445);
+    map.centerAndZoom(point, 12);
+
+    function myFun(result) {
+        var cityName = result.name;
+        map.setCenter(cityName);
+        document.getElementById('demo').innerHTML = '[' + cityName + ']';
+    }
+    var myCity = new BMap.LocalCity();
+    myCity.get(myFun);
+</script>

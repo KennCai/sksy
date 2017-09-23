@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人资料</title>
+    <link rel="icon" type="image/x-icon" href="/images/速康logo.jpg" >
+    <link rel="stylesheet" href="/stylesheets/showOnePerson.css">
+    <script src="/javascripts/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2.0&ak=H9G5X4tyPuhvHosMGue3B4RcImb2ZOod"></script>
+    <script>
+        $(document).ready(function(){
+            $.get("/users/Session",function(data,status){
+                console.log("数据: " + data + "\n状态: " + status);
+                $("#UserInfo").html(data);
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="top">
+    <div id="left">
+        当前位置
+        <div id="demo">[正在定位..]</div>
+        <div id="allmap"></div>
+    </div>
+    <div id="right">
+        <ul>
+            <div class="right1"><span id="UserInfo"></span>&nbsp;</div>
+            <div class="right2">
+                <li><a href="/goods/UserOrder">我的订单</a> |</li>
+                <li><a href="/users/ShowUser">个人中心 |</a></li>
+                <li><a href="/Help">帮助中心</a> |</li>
+                <li>手机APP |</li>
+                <li><a href="/users/glyLogin">管理员</a></li>
+            </div>
+        </ul>
+    </div>
+</div>
+<div class="head_nav">
+    <ul>
+        <li style="float: left;color:#5a5eff;font-size: 35px;margin-left: 10px;margin-top: 10px;font-family: '华文行楷'">速康送药</li>
+        <li  style=" margin-left: 200px;"><a href="/">首页</a></li>
+        <li><a href="/users/ShowUser">个人资料</a></li>
+        <li><a href="/users/UpdateUser">修改个人资料</a></li>
+        <li><a href="/users/ShowUpdatePassword">修改密码</a></li>
+        <li><a href="/goods/Cart">购物车</a></li>
+    </ul>
+
+</div>
+<div class="container">
+    <div class="box">
+
+            <% for(var i = 0;i < showUser.length;i++) { %>
+            <div class="one_Phont">
+                <div class="one_showphote">
+                    <img src="/upload/<%= showUser[0].Pic %>" width="100px"  />
+                </div>
+            </div>
+            <div class="one_name1">
+                <label>帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：
+                <div class="kt_1" ><%=showUser[i].UserId%>
+                </div>
+
+            </div>
+            <div class="one_name2">
+                <label>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</label>
+                <div class="kt_1">
+                   <%=showUser[i].UserName%>
+                </div>
+            </div>
+            <div class="one_tel">
+                <label>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：</label>
+                <div class="kt_1">
+                   <%=showUser[i].Utel%>
+                </div>
+            </div>
+            <div class="one_sex">
+                <label>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</label>
+                <div class="kt_1">
+                   <%=showUser[i].Gender%>
+                </div>
+
+            </div>
+            <div class="one_birthday">
+                <label>出生日期：</label>
+                <div class="kt_1">
+                    <%=showUser[i].Birthday%>
+                </div>
+
+            </div>
+            <% } %>
+
+
+    </div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/javascripts/UpdateUser.js"></script>
+
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398,39.897445);
+    map.centerAndZoom(point,12);
+
+    function myFun(result){
+        var cityName = result.name;
+        map.setCenter(cityName);
+        document.getElementById('demo').innerHTML='['+cityName+']';
+    }
+    var myCity = new BMap.LocalCity();
+    myCity.get(myFun);
+</script>

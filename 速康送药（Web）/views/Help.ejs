@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>帮助中心</title>
+    <link rel="icon" type="image/x-icon" href="/images/速康logo.jpg" >
+    <link rel="stylesheet" href="/stylesheets/帮助中心.css"/>
+
+    <script language="JavaScript" src="/javascripts/detail.js"></script>
+    <script src="/javascripts/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2.0&ak=H9G5X4tyPuhvHosMGue3B4RcImb2ZOod"></script>
+    <script>
+        $(document).ready(function () {
+            $.get("/users/Session", function (data, status) {
+                console.log("数据: " + data + "\n状态: " + status);
+                $("#UserInfo").html(data);
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="page">
+    <div id="top">
+        <div id="left">
+            当前位置  <div id="demo">[正在定位..]</div>
+            <div id="allmap"></div>
+        </div>
+        <div id="right">
+            <ul>
+                <div class="right1"><span id="UserInfo"></span>&nbsp;</div>
+                <div class="right2">
+                    <li><a href="/goods/UserOrder">我的订单</a> |</li>
+                    <li><a href="/users/ShowUser">个人中心 |</a></li>
+                    <li><a href="/Help">帮助中心</a> |</li>
+                    <!--<li style="color:#C7A875">400-007-1234 |</li>-->
+                    <li>手机APP |</li>
+                    <li><a href="/users/glyLogin">管理员</a></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <div id="Menu11">
+        <div id="div1">
+            <a href="/"><img src="../images/速康logo.jpg" alt="" style="width: 80px;height: 80px"></a></div>
+        <div id="div2"> | </div>
+        <div id="div3"> 速康送药<br>您身边的<br>健康专家！</div>
+        <a href="/goods/searchGood">
+            <div id="div4"><input type="text" placeholder="   &nbsp请输入商品名"
+                                  style="width: 380px;height: 40px;border:2px solid #0CA2DE;font-size: 14px;"></div>
+            <div id="div5"><img src="/images/search.png"
+                                style="padding-left: 18px;padding-top: 11px;width: 20px;height: 20px;"></div></a>
+        <div id="div6">
+            <div style="float: left;padding-top: 20px;"><img src="../images/电话.png" alt=""></div>
+            <div style="float: left;margin-top: -5px;"><P style="font-size: 20px">400-010-1234 选药品<br><b>60</b>分钟内免费送到家</P></div>
+        </div>
+    </div>
+    <hr>
+    <div id="Menu12">
+        <div id="mr">
+            <ul>
+                <li><a href="/" style="color: #ffffff">首页</a>&nbsp;</li>
+                <li><a href="/users/Hdzq" style="color: #ffffff">活动专区</a>&nbsp;</li>
+                <li><a href="/users/Health" style="color: #ffffff">健康资讯</a>&nbsp;</li>
+                <li><a href="/users/Flow" style="color: #ffffff">购药指南</a>&nbsp;</li>
+                <li><a href="/users/Gywm" style="color: #ffffff">关于我们</a></li>
+            </ul>
+        </div>
+    </div>
+        <div id="nav">
+            <div id="ml">
+                <div style="float: left">全部商品分类&nbsp;</div>
+                <div style="float: left"><img src="../images/菜单.png" alt="" width="25px" height="25px" align="center"></div>
+            </div>
+            <div class="class">
+                <div class="sidebar">
+                    <ul style="padding: 0">
+                        <li><a href="#"><img src="/images/呼吸系统.png" style="width: 18px;height: 18px"> &nbsp;呼吸道疾病</a><span class="hover"></span>
+                            <ul class="sub-menu">
+                                <li><a href="/goods/AllGoods">感冒发烧</a><span class="hover"></span></li>
+                                <li><a href="#">咳嗽</a><span class="hover"></span></li>
+                                <li><a href="#">上火</a><span class="hover"></span></li>
+                                <li><a href="#">小儿感冒</a><span class="hover"></span></li>
+                                <li><a href="#">哮喘</a><span class="hover"></span></li>
+                                <li><a href="#">支气管炎</a><span class="hover"></span></li>
+                                <li><a href="#">慢性阻塞性肺病</a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><img src="/images/肠胃用药.png" style="width: 18px;height: 18px"> &nbsp;消化系统疾病</a><span class="hover"></span>
+                            <ul class="sub-menu" style="margin-top: -80px">
+                                <li><a href="#">胃炎</a><span class="hover"></span></li>
+                                <li><a href="#">胃肠溃疡</a><span class="hover"></span></li>
+                                <li><a href="#">结肠炎</a><span class="hover"></span></li>
+                                <li><a href="#">消化不良</a><span class="hover"></span></li>
+                                <li><a href="#">便秘</a><span class="hover"></span></li>
+                                <li><a href="#">腹泻</a><span class="hover"></span></li>
+                                <li><a href="#">痔疮</a><span class="hover"></span></li>
+                                <li><a href="#">小儿肠胃病</a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><img src="/images/皮肤病.png" style="width: 18px;height: 18px"> &nbsp;皮肤病</a><span class="hover"></span>
+                            <ul class="sub-menu" style="margin-top: -120px">
+                                <li><a href="#">皮炎癣症</a><span class="hover"></span></li>
+                                <li><a href="#">银屑病</a><span class="hover"></span></li>
+                                <li><a href="#">痤疮</a><span class="hover"></span></li>
+                                <li><a href="#">白癜风</a><span class="hover"></span></li>
+                                <li><a href="#">黄褐斑</a><span class="hover"></span></li>
+                                <li><a href="#">疤痕</a><span class="hover"></span></li>
+                                <li><a href="#">灰指甲</a><span class="hover"></span></li>
+                                <li><a href="#">烧烫创伤</a><span class="hover"></span></li>
+                                <li><a href="#">过敏</a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><img src="/images/运动风湿骨科.png" style="width: 18px;height: 18px"> &nbsp;运动风湿骨科</a><span class="hover"></span>
+                            <ul class="sub-menu" style="margin-top: -160px">
+                                <li><a href="#">风湿类风湿</a><span class="hover"></span></li>
+                                <li><a href="#">骨关节炎</a><span class="hover"></span></li>
+                                <li><a href="#">跌打骨伤</a><span class="hover"></span></li>
+                                <li><a href="#">腰椎病</a><span class="hover"></span></li>
+                                <li><a href="#">骨质疏松</a><span class="hover"></span></li>
+                                <li><a href="#">痛风</a><span class="hover"></span></li>
+                                <li><a href="#">外用贴膏</a><span class="hover"></span></li>
+                                <li><a href="#">骨质增生</a><span class="hover"></span></li>
+                                <li><a href="#">股骨头坏死</a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><img src="/images/五官科.png" style="width: 18px;height: 18px"> &nbsp;五官科疾病</a><span class="hover"></span>
+                            <ul class="sub-menu" style="margin-top: -200px">
+                                <li><a href="#">鼻炎</a><span class="hover"></span></li>
+                                <li><a href="#">咽喉炎</a><span class="hover"></span></li>
+                                <li><a href="#">眼干眼涩</a><span class="hover"></span></li>
+                                <li><a href="#">耳聋耳鸣</a><span class="hover"></span></li>
+                                <li><a href="#">口腔溃疡</a><span class="hover"></span></li>
+                                <li><a href="#">牙周痛病</a><span class="hover"></span></li>
+                                <li><a href="#">眼部炎症</a><span class="hover"></span></li>
+                                <li><a href="#">白内障</a><span class="hover"></span></li>
+                                <li><a href="#">视网膜病变</a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><img src="/images/口腔护理.png" style="width: 18px;height: 18px"> &nbsp;口腔护理</a><span class="hover"></span>
+                            <ul class="sub-menu" style="margin-top: -240px">
+                                <li><a href="#">牙膏</a><span class="hover"></span></li>
+                                <li><a href="#">牙刷</a><span class="hover"></span></li>
+                                <li><a href="#">漱口水</a><span class="hover"></span></li>
+                                <li><a href="#">牙线</a><span class="hover"></span></li>
+                                <li><a href="#">假牙护理</a><span class="hover"></span></li>
+                                <li><a href="#">进口口腔</a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><img src="/images/面部护理.png" style="width: 18px;height: 18px"> &nbsp;面部护理</a><span class="hover"></span>
+                            <ul class="sub-menu" style="margin-top: -280px">
+                                <li><a href="#">祛痘</a><span class="hover"></span></li>
+                                <li><a href="#">祛疤</a><span class="hover"></span></li>
+                                <li><a href="#">抗敏</a><span class="hover"></span></li>
+                                <li><a href="#">祛斑</a><span class="hover"></span></li>
+                                <li><a href="#">去黑头</a><span class="hover"></span></li>
+                                <li><a href="#">去黑眼圈</a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#"><img src="/images/儿科用药.png" style="width: 18px;height: 18px"> &nbsp;儿科用药</a><span class="hover"></span>
+                            <ul class="sub-menu" style="margin-top: -320px">
+                                <li><a href="#">儿童呼吸道疾病</a><span class="hover"></span></li>
+                                <li><a href="#">儿童消化道疾病</a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><img src="/images/医药保健.png" style="width: 18px;height: 18px"> &nbsp;滋补保健</a><span class="hover"></span>
+                            <ul class="sub-menu" style="margin-top: -360px">
+                                <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                                <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                                <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                                <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                                <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                                <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><img src="/images/医疗器械.png" style="width: 18px;height: 18px;"> &nbsp;医疗器械</a><span class="hover"></span>
+                            <ul class="sub-menu" style="margin-top: -400px">
+                                <li><a href="#">高血压</a><span class="hover"></span></li>
+                                <li><a href="#">脑血管病</a><span class="hover"></span></li>
+                                <li><a href="#">冠心病</a><span class="hover"></span></li>
+                                <li><a href="#">高血脂</a><span class="hover"></span></li>
+                                <li><a href="#">心绞痛</a><span class="hover"></span></li>
+                                <li><a href="#">静脉曲张</a><span class="hover"></span></li>
+                                <li><a href="#">心力衰竭</a><span class="hover"></span></li>
+                                <li><a href="#">血液病</a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                                <li><a href="#"></a><span class="hover"></span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <div class="center">
+        <div id="Tab">
+            <div id="Mtop">
+                <span><img src="../images/首页.png" alt=""></span>
+                <span><a href="/" style="color: black;text-decoration: none">首页</a></span>
+                <span> > </span>
+                <span>帮助中心</span>
+            </div>
+            <div class="Menubox">
+                <h3>帮助中心</h3>
+                <ul>
+                    <li id="menu1" onclick="setTab('menu',1,9)" class="hover">常见问题  ></li>
+                    <li id="menu2" onclick="setTab('menu',2,9)">购药流程  ></li>
+                    <li id="menu3" onclick="setTab('menu',3,9)">订单状态说明  ></li>
+                    <li id="menu4" onclick="setTab('menu',4,9)">隐私声明  ></li>
+                    <li id="menu5" onclick="setTab('menu',5,9)">商品验货及签收  ></li>
+                    <li id="menu6" onclick="setTab('menu',6,9)">支付方式  ></li>
+                    <li id="menu7" onclick="setTab('menu',7,9)">退换货政策  ></li>
+                    <li id="menu8" onclick="setTab('menu',8,9)">正品保障  ></li>
+                    <li id="menu9" onclick="setTab('menu',9,9)">退款规则  ></li>
+                </ul>
+            </div>
+            <div class="Contentbox">
+                <div id="con_menu_1" class="hover">
+                    <div class="info-list">
+                        <table>
+                            <tr>
+                                <td class="quesition" width="56px"></td>
+                                <td><h3>请问下完单之后什么时候送货？</h3></td>
+                            </tr>
+                            <tr>
+                                <td class="answer" width="56px"></td>
+                                <td class="smaller"><span>您好，我们的配送时间是8:00-22:00，自下单之后1小时内送达</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="info-list">
+                        <table>
+                            <tr>
+                                <td class="quesition" width="56px"></td>
+                                <td><h3>支付方式有哪些？如何支付？</h3></td>
+                            </tr>
+                            <tr>
+                                <td class="answer" width="56px"></td>
+                                <td class="smaller"><span>您好，我们的支付方式有：在线支付(支持支付宝、网银)、货到刷卡、货到付现金。</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="info-list">
+                        <table>
+                            <tr>
+                                <td class="quesition" width="56px"></td>
+                                <td><h3>我买错了商品，没有看到修改订单或者取消订单的按钮，我应该怎么办？</h3></td>
+                            </tr>
+                            <tr>
+                                <td class="answer" width="56px"></td>
+                                <td class="smaller"><span>您好，我们是系统自动下单发货，付款之后不支持修改您的订单信息。您可以联系我们客服为您取消订单，重新拍下商品。支付宝和网银支付的退款会在取消订单之后的3-5个工作日内给您原路退回的哦。请您耐心等待！</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="info-list">
+                        <table>
+                            <tr>
+                                <td class="quesition" width="56px"></td>
+                                <td><h3>你们的药是正品吗？</h3></td>
+                            </tr>
+                            <tr>
+                                <td class="answer" width="56px"></td>
+                                <td class="smaller"><span>您好,我们是由国家药监局认证的合法药品销售网站，在广州、武汉、成都是有连锁药房。我们的网站商品都是正规渠道进货，保证正品。同时我们的商品都是可以开具发票，方便您维权。</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="info-list">
+                        <table>
+                            <tr>
+                                <td class="quesition" width="56px"></td>
+                                <td><h3>你们的产品保质期到什么时候？</h3></td>
+                            </tr>
+                            <tr>
+                                <td class="answer" width="56px"></td>
+                                <td class="smaller"><span>非常抱歉，我们是看不到商品具体的生产日期，您可以放心我们网站的商品都是最新批号，每周补货，不积压库存。而且近效期半年内的商品，我们会在网站商品页面尽快标注提醒顾客。请您放心购买。</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="info-list">
+                        <table>
+                            <tr>
+                                <td class="quesition" width="56px"></td>
+                                <td><h3>可以开发票吗？</h3></td>
+                            </tr>
+                            <tr>
+                                <td class="answer" width="56px"></td>
+                                <td class="smaller"><span>您好，我们速康送药的产品都是可以提供发票，下单结算的时候即可以选择开具发票。</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+                </div>
+                <div id="con_menu_2">
+                    <h3>购药流程</h3>
+                    <hr  noshade size = 0.5 align="center" width="960px">
+                    <div style="margin-bottom: 300px"><img src="../images/流程.png" alt=""></div>
+                </div>
+                <div id="con_menu_3">
+                    <h3>订单状态说明</h3>
+                    <hr  noshade size = 0.5 align="center" width="960px">
+                    <h4>待结算</h4>
+                    <p>当您完成订单后未支付的订单状态将显示为待付款，即等待付款。</p>
+                    <h4>待审核</h4>
+                    <p>当您通过银行转账后，通过速康送药提供的"付款确认"按钮输入流水单号后订单状态变为"待审核"，等待速康送药相关人员核对账单</p>
+                    <h4>待处理</h4>
+                    <p>当1药网收到您通过银行转账支付的订单费用后，订单状态变为"待处理"；当您选择的支付方式为"货到付款"，订单完成后状态变为"待处理"。</p>
+                    <h4>处理中</h4>
+                    <p>当1药网库房正在配货或安排发货时，订单状态变为"处理中"，此时您将不能取消订单。</p>
+                    <h4>已发货</h4>
+                    <p>您的订单已由库房发出，订单状态变为“已发货”；正在由快递小哥送到您身边的路上</p>
+                    <h4>已完成</h4>
+                    <p>当您收到货物并且15天内没有退货，则订单状态变为“已完成”</p>
+                    <h4>已取消</h4>
+                    <p>当您完成订单后未支付的订单状态将显示为待付款，即订单已取消。</p>
+
+
+                </div>
+                <div id="con_menu_4">
+                    <h3>隐私声明</h3>
+                    <hr  noshade size = 0.5 align="center" width="960px">
+                    <p>本网站由苏州速康送药连锁有限公司（以下简称“我们”）运营并由其关联公司提供各种支持。</p>
+                    <p>欢迎速康送药网！我们以本隐私声明声明对访问者隐私保护的许诺。有时候我们需要某些信息才能为您提供您请求的服务，本隐私声明解释了这些情况下的数据收集和使用情况。本隐私声明适用于本网站的所有相关服务。在同意速康送药网服务协议（“协议”）之时，您已经同意我们按照本隐私声明来使用和披露您的个人信息。本隐私声明的全部条款属于该协议的一部份。</p>
+                    <h4>客户信息的获取</h4>
+                    <p>我们获取客户信息的主要目的在于向您提供一个顺畅、高效的购物体验，并致力于不断完善和提升您的体验。</p>
+                    <p>我们可能获取的客户信息类型包括：<br>
+                        注册信息（如，用户名、密码或在注册过程中提供的信息）<br>
+                    <ul>
+                        <li>个人或公司联系方式（如，姓名、公司名称、真实地址、电邮地址、电话、手机号码、传真号码）</li>
+                        <li>订购信息（如，(i) 订购人和收货人名称、真实地址、电邮地址和电话号码等与订购相关的任何信息，(ii) 在交付文件上的签名，(iii) 速康送药帐号及帐号信息，(iv) 为帮助我们提供服务（包括特定服务）而提供给我们的信息。</li>
+                        <li>用于您身份识别的信息（如，身份证号码、护照号码、驾驶证号码）。</li>
+                        <li>指示我们将商品或服务提供给其他人士时提供的该人士的有关信息（如该人士的姓名、电邮地址和电话号码）。</li>
+                        <li>支付信息（包括但不限于支付详情或在线支付服务信息和账单寄送地址）和财务信息（如，银行账号）。</li>
+                        <li>其他个人、公司、单位、或社会实体信息</li>
+                    </ul>
+                    <p>我们可能会就下列各种情况，获得您的客户信息：</p>
+                    <ul>
+                        <li>您在访问或使用本网站服务时提供的信息。</li>
+                        <li>您在与我们的沟通中自动获取的信息：无论您何时与我们沟通，我们接收并储存的信息。</li>
+                        <li>从其他来源获取的信息：如您参加我们或我们与合作伙伴组织的任何活动。</li>
+                    </ul>
+                    <h4>顾客信息的使用</h4>
+                    <p>我们可能会利用我们获取的顾客信息：</p>
+                    <ul>
+                        <li>向您提供所需要的产品或服务（如，定向采购、货物配送）</li>
+                        <li>处理和收取款项</li>
+                        <li>就您的要求向您提供咨询服务，或向您做出回应或与您沟通</li>
+                        <li>向您提供我们认为您可能会感兴趣的产品或服务</li>
+                        <li>为提升我们的服务，联系您进行调研</li>
+                        <li>为提升我们的服务，联系您进行调研</li>
+                        <li>进行数据分析（如，购买行为或趋势分析、市场或顾客调查、财务分析）</li>
+                        <li>管理或认可您参加各种活动的资格，如线上或线下活动、优惠或促销活动</li>
+                        <li>经营、评估和完善我们的业务（包括开发新产品和服务；管理我们的通信；判断我们的销售、营销和广告效果；分析和强化我们的产品、服务和网站；和开展会计、审计、记账、对账和收集活动）</li>
+                        <li>在事先获得您同意的情况下，向您指定的联系人发送信息</li>
+                        <li>防止各种违法或犯罪活动和其他法律责任</li>
+                        <li>遵守法律规定和我们的政策规则</li>
+                    </ul>
+                </div>
+                <div id="con_menu_5">
+                    <h3>商品验货及签收</h3>
+                    <hr  noshade size = 0.5 align="center" width="960px">
+                    <p>原则上，速康送药不接受无理由拒收。在您收到商品后，如对速康送药的商品有任何不满意，在商品包装干净，完好且未经拆封，未经使用的前提下，您可以与速康送药客服联系提出退货要求，速康送药客服人员将对您的退货要求做出判断后方可办理退货处理。具体办法请参见“退换货政策”</p>
+                    <br>
+                    <p>如您验收商品时发现商品短缺、配送错误、包装破损、商品存在质量问题等，您可以拒收全部或部分商品，相关的赠品，配件或捆绑商品应一起当场拒收。</p><br>
+                    <p>1. 签收时在付款后与配送人员当面核对：商品及配件、应付金额、商品数量及发货清单、发票（如有）、赠品（如有）等</p>
+                    <p>2. 如存在包装破损、商品错误、商品短缺、商品存在质量问题等影响签收的因素，您可以拒收全部商品。或者快递在场情况下联系客服处理。</p>
+                    <p>3. 为了保护您的权益，建议您尽量不要委托他人代为签收；如由他人代为签收商品而没有在配送人员在场的情况下验货，则视为您所订购商品的包装无任何问题，1药网有权不接受以此为由的退换货。</p>
+                    <p>4. 为了方便日后可能出现的退换货流程，请保留商品外包装箱15天</p>
+                    <h4>如同一顾客二次无理由退货，1药网将对其视作“恶意订购”，今后对该顾客帐户仅做款到发货处理，敬请谅解！</h4>
+
+                </div>
+                <div id="con_menu_6">
+                    <h3>支付方式</h3>
+                    <hr  noshade size = 0.5 align="center" width="960px">
+                    <h4>货到付款</h4>
+                    <p>货到付款分为现金支付、POS机刷卡两种支付方式。现金支付即货物送到订单制定的收货地址后，由收货人支付货款给送货人员；POS机刷卡支付即货物送到订单指定的收货地址后，由收货人刷卡支付订单金额。</p>
+                    <h4>网上支付</h4>
+                    <img src="../images/网上支付.png" alt="">
+
+                </div>
+                <div id="con_menu_7">
+                    <div><img src="../images/tuihuo1.jpg" alt="" style="width: 960px;margin-top: 10px"></div>
+                    <div style="background-color: #CBEEC7;height: 100px;margin-top: -3px"><img src="../images/tuihuo2.png" alt="" style="padding-left: 310px;padding-top: 20px"></div>
+                    <div>
+                        <img src="../images/photo01.png" alt="" style="width: 315px">
+                        <img src="../images/photo02.png" alt="" style="width: 315px">
+                        <img src="../images/photo03.png" alt="" style="width: 314px">
+                    </div>
+                    <div style="background-color: #CBEEC7;height: 100px;margin-top: -3px"><img src="../images/tuihuo3.png" alt="" style="padding-left: 220px;padding-top: 20px"></div>
+                    <img src="../images/text0001.png" alt="" style="margin-top: 50px">
+                    <img src="../images/text0002.png" alt="" style="margin-top: 50px">
+                    <img src="../images/text0003.png" alt="" style="margin-top: 50px">
+                    <img src="../images/text0004.png" alt="" style="margin-top: 50px">
+
+                </div>
+                <div id="con_menu_8">
+                    <img src="../images/正品1.jpg" alt="" style="width: 960px;margin-top: 10px">
+                    <img src="../images/正品2.jpg" alt="" style="width: 960px;margin-top: -3px">
+                    <img src="../images/正品3.png" alt="" style="width: 960px;margin-top: -5px">
+                    <img src="../images/正品4.jpg" alt="" style="width: 960px">
+                    <img src="../images/正品5.jpg" alt="" style="width: 960px">
+                    <img src="../images/正品6.jpg" alt="" style="width: 960px">
+                </div>
+                <div id="con_menu_9">
+                    <h3>退款规则</h3>
+                    <hr  noshade size = 0.5 align="center" width="960px">
+                    <div style="margin-bottom: 400px"><p>当速康送药收到您寄回的的退货商品并检查无误后，速康送药将收回您购买此商品所获的返利并会将退款原路返回到您的帐户。</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="foot">
+        <div class="footMin" style="margin-left: 105px">
+            <img src="../images/foot1.png" alt="" width="220" height="130"/>
+        </div>
+        <div class="footMin">
+            <img src="../images/foot2.png" alt="" width="220" height="130"/>
+        </div>
+        <div class="footMin">
+            <img src="../images/foot3.png" alt="" width="220" height="130"/>
+        </div>
+        <div class="footMin">
+            <img src="../images/foot4.png" alt="" width="220" height="130"/>
+        </div>
+    </div>
+
+    <footer>
+        关于我们丨 友情链接丨 联系我们丨 诚聘英才丨 帮助中心丨 <br/>
+        苏州市公安局备案编号110105014669丨苏ICP备14030992号丨互联网药品信息服务资格证编号（苏)-非经营性-2016-0912 <br/>
+        Copyright @ 2014-2016 速康送药 4000000511.com版权所有
+    </footer>
+</div>
+<script language="JavaScript" src="/javascripts/index2.js"></script>
+</body>
+</html>
+
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398,39.897445);
+    map.centerAndZoom(point,12);
+
+    function myFun(result){
+        var cityName = result.name;
+        map.setCenter(cityName);
+        document.getElementById('demo').innerHTML='['+cityName+']';
+    }
+    var myCity = new BMap.LocalCity();
+    myCity.get(myFun);
+</script>

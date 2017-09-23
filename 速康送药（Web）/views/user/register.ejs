@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="icon" type="image/x-icon" href="/images/速康logo.jpg" >
+    <link rel="stylesheet" href="/stylesheets/registerstyle.css">
+    <link rel="stylesheet" href="/stylesheets/css/bootstrap-theme.min.css">
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/script.js"></script>
+</head>
+<body>
+
+
+<header>
+    <a class="logo" href="/">
+        <img src="/images/速康.jpg">
+    </a>
+    <img src="/images/title.png" style="height: 90px;width: 222px;padding-left: 20px;margin-top: -2px;">
+</header>
+<div class="container">
+    <div class="lg_con">
+        <h2 class="lg_title">
+            <span class="fr">已注册   <a href="/users/Login" style="color: red">登录</a></span>
+            Hi，欢迎注册！
+        </h2>
+    </div>
+    <section>
+        <div class="left" style="margin-top:20px">
+            <form action="/users/UserRegiste" method="post" id="form">
+                <div>
+                    <label>
+                        <input type="text" class="text" name="UserId" id="UserId" placeholder="用&nbsp;户&nbsp;名">
+                        <span id="UserIdSpan"></span>
+                    </label>
+                    <p class="msg" style="font-size: 13px"></p>
+                </div>
+                <div style="margin-top: 8px">
+                    <label style="display: inline">
+                        <input type="password" class="text" name="UserPassword" id="UserPassword"
+                               placeholder="登录密码"><span id="UserPasswordSpan"></span>
+                    </label>
+                    <label style="display: inline;margin-top: 25px;margin-left: 40px">
+                        <em class="active">弱</em><em>中</em><em>强</em>
+                    </label>
+                    <p class="msg" style="font-size: 13px"></p>
+                </div>
+                <div style="margin-bottom: 40px;margin-top: 10px;">
+                    <label>
+                        <input type="password" class="text" name="UserPassword2" id="UserPassword2"
+                               placeholder="确认密码"><span id="UserPassword2Span"></span>
+                    </label>
+                    <p class="msg" style="font-size: 14px"></p>
+                </div>
+                <div class="left_reg_4">
+                    <label class="checkbox">
+                        <input type="checkbox" value="1" id="xycheckbox" checked="checked">
+                        <span class="two_week" style="font-size: 14px">我已经阅读并同意
+                        <a href="" class="blue_link">《速康送药网协议》</a>
+                        </span><br>
+                    </label><br>
+                    <label style="clear: both">
+                        <span><input type="submit" value="立即注册" id="registerButton"></span>
+                    </label>
+                </div>
+                <div class="reg_row hz_login">
+                    <p>使用合作账号登录:</p>
+                    <br>
+                    <!--<a href="#" class="first a_yhd"></a>-->
+                    <a href="#" class="a_zfb"></a>
+                    <a href="#" class="a_qq"></a>
+                    <a href="#" class="a_xl"></a>
+                    <!--<a href="#" class="a_wlt"></a>-->
+                    <a href="#" class="last a_wy"></a>
+                </div>
+            </form>
+        </div>
+        <div class="right"></div>
+    </section>
+    <div id="simple_footer">
+        <p>
+            <a target="_blank" href="#">关于1药网</a>|
+            <a href=" " target="_blank" rel="nofollow">互联网药品交易资格证</a>|
+            <a href=" " target="_blank" rel="nofollow">互联网药品信息服务资格证</a>|
+
+        </p>
+        <br>
+        <p>
+            <a rel="nofollow" href=" " target="_blank">连锁营业执照</a>|
+            <a rel="nofollow" href=" " target="_blank">保健食品卫生许可证</a>|
+            <a rel="nofollow" href=" " target="_blank">医疗器械许可证</a>|
+            <a rel="nofollow" href=" " target="_blank">食品流通许可证</a>|
+            <a rel="nofollow" href=" " target="_blank">GSP证书</a>|
+            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">粤ICP备12015869号</a>
+        </p>
+        <br>
+        <p style="color: #666">
+            Copyright&copy; 1药网 2010-2015， All Rights Reserved
+        </p>
+    </div>
+
+
+</div>
+</body>
+</html>

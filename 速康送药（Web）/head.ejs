@@ -1,0 +1,82 @@
+
+<link type="text/css" rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <script src="/javascripts/jquery-3.1.0.min.js"></script>
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/public.css">
+    <script>
+    $(document).ready(function(){
+        $.get("/users/S",function(data,status){
+            console.log("数据: " + data + "\n状态: " + status);
+            $("#AdminInf").html(data);
+        });
+    });
+</script>
+
+<style>
+ul{
+    list-style: none;
+    background-color: #40b7d6;
+    border-radius: 5px ;
+}
+li{
+    display: inline;
+}
+.list li a{
+    padding: 0 30px;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    display: inline-block;
+    transition: 0.3s;
+    line-height:40px;
+}
+.list li a:hover{
+    text-decoration: none;
+    background: #FF8080;
+
+}
+a:hover{
+    text-decoration: none;
+}
+    .public-header-warrp{
+        position: absolute;
+        margin-bottom: 100px;
+    }
+</style>
+<div class="public-header-warrp">
+    <div class="public-header">
+        <div class="content">
+            <div class="public-header-logo" style="margin-bottom: 20px;margin-left: 50px">
+                <a href="/">
+                   <i><img src="/images/速康.jpg" width="60px" height="60px" alt=""></i>
+                    <h3>速康送药</h3></a></div>
+            <div class="public-header-admin fr">
+                <p class="admin-name" style="padding: 0; font-size: 17px;font-weight: 700; margin-left: 200px; display: block;width: 230px" id="AdminInf"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top: 80px;">
+    <div  >
+    <div class="nav" >
+    <ul class="list">
+    <li>
+   <ul>
+     <li style="margin-left: 100px"><a href="/users/Index">首页</a></li>
+     <li><a href="/users/queryAll">显示用户</a></li>
+     <li><a href="/users/queryAllgoods">显示商品</a></li>
+     <li><a href="/users/Addgoods">商品添加</a></li>
+     <li><a href="/users/ShowAllInfo">显示资讯</a></li>
+     <li><a href="/users/news">资讯添加</a></li>
+
+   </ul>
+
+ </li>
+    </ul>
+
+    </div>
+
+    </div>
+</div>

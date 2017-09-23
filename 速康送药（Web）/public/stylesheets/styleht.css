@@ -1,0 +1,25 @@
+body {
+  padding: 5px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+ul{
+  list-style: none;
+  background-color: #2aabd2;
+  line-height: 30px;
+}
+li{
+  display: inline;
+  padding-left: 20px;
+}
+a{
+  text-decoration: none;
+  color: #ffffff;
+}
+a:visited{
+  color: #ffffff;
+}
+
+.user-details{
+  background-color: pink;
+}

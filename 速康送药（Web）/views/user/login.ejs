@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="icon" type="image/x-icon" href="/images/速康logo.jpg" >
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+<header>
+    <a class="logo" href="/">
+        <img src="/images/速康.jpg" >
+    </a>
+    <img src="/images/title.png" style="height: 90px;width: 222px;padding-left: 20px;margin-top: 8px;">
+</header>
+<section>
+    <div class="s1">
+        <h2 class="lg-title">
+    <span class="fr">
+        还没有账号？
+        <a class="zc-link" href="/users/Register">免费注册</a>
+    </span>
+            Hi，欢迎登录！
+        </h2>
+        <form action="/users/loginjudge" method="post">
+            <div class="row"><input type="text" id="userName" name="UserId" required placeholder="邮箱/手机号/用户名">
+                <span style="color: red;font-size: 12px;position: relative;">
+
+
+                </span>
+            </div>
+            <div class="row"><input type="password" id="passWord" name="UserPassword" required placeholder="登录密码">
+            </div>
+            <span class="Fr"><a class="gray" href="#">忘记密码？</a></span>
+            <label for="rememberPwd">
+                <input type="checkbox" id="rememberPwd" value="1">
+              <span class="tw">
+                两周内免登录
+              </span>
+            </label>
+            <button type="submit" class="btn btn-primary">登录</button>
+
+            <div class="hz">
+                <p>
+                    使用合作伙伴账号登录
+                </p>
+                <a href="#" class="zfb"></a>
+                <a href="#" class="qq"></a>
+                <a href="#" class="wb"></a>
+                <a href="#" class="wy"></a>
+            </div>
+        </form>
+    </div>
+</section>
+<footer>
+    <div id="simplefooter">
+        <p>
+            <a target="_blank" href="#">关于速康送药</a>|
+            <a href=" "	target="_blank" rel="nofollow">互联网药品交易资格证</a>|
+            <a href=" "	target="_blank" rel="nofollow">互联网药品信息服务资格证</a>|
+
+        </p>
+        <p>
+            <a rel="nofollow"	href=" " target="_blank">连锁营业执照</a>|
+            <a rel="nofollow"	href=" " target="_blank">保健食品卫生许可证</a>|
+            <a rel="nofollow"	href=" " target="_blank">医疗器械许可证</a>|
+            <a rel="nofollow"	href=" "  target="_blank">食品流通许可证</a>|
+            <a rel="nofollow" href=" "	target="_blank">GSP证书</a>|
+            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">粤ICP备12015869号</a>
+        </p>
+        <p>
+            Copyright&copy; 速康送药 2010-2015， All Rights Reserved
+        </p>
+    </div>
+
+</footer>
+</body>
+</html>

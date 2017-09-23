@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <link rel="icon" type="image/x-icon" href="/images/速康logo.jpg" >
+    <link rel="stylesheet" href="/stylesheets/detail.css">
+    <script src="/javascripts/detail.js"></script>
+    <script src="/javascripts/放大镜.js"></script>
+    <script src="/javascripts/jquery-3.1.0.min.js"></script>
+
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=2.0&ak=H9G5X4tyPuhvHosMGue3B4RcImb2ZOod"></script>
+
+    <script>
+        $(document).ready(function () {
+            $.get("/users/Session", function (data, status) {
+                console.log("数据: " + data + "\n状态: " + status);
+                $("#UserInfo").html(data);
+            });
+        });
+    </script>
+</head>
+<body onload="Time()">
+<div id="page">
+    <div id="top">
+        <div id="left">
+            当前位置
+            <div id="demo">[正在定位..]</div>
+            <div id="allmap"></div>
+        </div>
+        <div id="right">
+            <ul>
+                <div class="right1"><span id="UserInfo"></span>&nbsp;</div>
+                <div class="right2">
+                    <li><a href="/goods/UserOrder">我的订单</a> |</li>
+                    <li><a href="/users/ShowUser">个人中心 |</a></li>
+                    <li><a href="/Help">帮助中心</a> |</li>
+                    <!--<li style="color:#C7A875">400-007-1234 |</li>-->
+                    <li>手机APP |</li>
+                    <li><a href="/users/glyLogin">管理员</a></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div class="menu1">
+        <div id="div1">
+            <a href="/"><img src="/images/速康logo.jpg" alt="" style="width: 80px;height: 80px"></a></div>
+        <div id="div2"> |</div>
+        <div id="div3"> 速康送药<br>您身边的<br>健康专家！</div>
+        <a href="/goods/searchGood">
+            <div id="div4"><input type="text" placeholder="   &nbsp请输入商品名"
+                                  style="width: 380px;height: 40px;border:2px solid #0CA2DE;font-size: 14px;"></div>
+            <div id="div5"><img src="/images/search.png"
+                                style="padding-left: 18px;padding-top: 11px;width: 20px;height: 20px;"></div></a>
+        <div id="div6">
+            <div style="float: left;padding-top: 20px;"><img src="/images/电话.png" alt=""></div>
+            <div style="float: left;margin-top: -5px;"><P style="font-size: 20px">400-010-1234 选药品<br><b>60</b>分钟内免费送到家
+                </P></div>
+        </div>
+    </div>
+    <hr>
+    <div class="menu2">
+        <div id="mr">
+            <ul>
+                <li><a href="/" style="color: #ffffff">首页</a>&nbsp;</li>
+                <li><a href="/users/Hdzq" style="color: #ffffff">活动专区</a>&nbsp;</li>
+                <li><a href="/users/Health" style="color: #ffffff">健康资讯</a>&nbsp;</li>
+                <li><a href="/users/Flow" style="color: #ffffff">购药指南</a>&nbsp;</li>
+                <li><a href="/users/Gywm" style="color: #ffffff">关于我们</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="nav">
+        <div id="ml">
+            <div style="float: left">全部商品分类&nbsp;</div>
+            <div style="float: left"><img src="/images/菜单.png" alt="" width="25px" height="25px" align="center"></div>
+        </div>
+        <div class="sidebar">
+            <ul style="padding: 0">
+                <li><a href="#"><img src="/images/呼吸系统.png" style="width: 18px;height: 18px"> &nbsp;呼吸道疾病</a><span
+                            class="hover"></span>
+                    <ul class="sub-menu">
+                        <li><a href="/goods/AllGoods">感冒发烧</a><span class="hover"></span></li>
+                        <li><a href="#">咳嗽</a><span class="hover"></span></li>
+                        <li><a href="#">上火</a><span class="hover"></span></li>
+                        <li><a href="#">小儿感冒</a><span class="hover"></span></li>
+                        <li><a href="#">哮喘</a><span class="hover"></span></li>
+                        <li><a href="#">支气管炎</a><span class="hover"></span></li>
+                        <li><a href="#">慢性阻塞性肺病</a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="/images/肠胃用药.png" style="width: 18px;height: 18px"> &nbsp;消化系统疾病</a><span
+                            class="hover"></span>
+                    <ul class="sub-menu" style="margin-top: -80px">
+                        <li><a href="#">胃炎</a><span class="hover"></span></li>
+                        <li><a href="#">胃肠溃疡</a><span class="hover"></span></li>
+                        <li><a href="#">结肠炎</a><span class="hover"></span></li>
+                        <li><a href="#">消化不良</a><span class="hover"></span></li>
+                        <li><a href="#">便秘</a><span class="hover"></span></li>
+                        <li><a href="#">腹泻</a><span class="hover"></span></li>
+                        <li><a href="#">痔疮</a><span class="hover"></span></li>
+                        <li><a href="#">小儿肠胃病</a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="/images/皮肤病.png" style="width: 18px;height: 18px"> &nbsp;皮肤病</a><span
+                            class="hover"></span>
+                    <ul class="sub-menu" style="margin-top: -120px">
+                        <li><a href="#">皮炎癣症</a><span class="hover"></span></li>
+                        <li><a href="#">银屑病</a><span class="hover"></span></li>
+                        <li><a href="#">痤疮</a><span class="hover"></span></li>
+                        <li><a href="#">白癜风</a><span class="hover"></span></li>
+                        <li><a href="#">黄褐斑</a><span class="hover"></span></li>
+                        <li><a href="#">疤痕</a><span class="hover"></span></li>
+                        <li><a href="#">灰指甲</a><span class="hover"></span></li>
+                        <li><a href="#">烧烫创伤</a><span class="hover"></span></li>
+                        <li><a href="#">过敏</a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="/images/运动风湿骨科.png" style="width: 18px;height: 18px"> &nbsp;运动风湿骨科</a><span
+                            class="hover"></span>
+                    <ul class="sub-menu" style="margin-top: -160px">
+                        <li><a href="#">风湿类风湿</a><span class="hover"></span></li>
+                        <li><a href="#">骨关节炎</a><span class="hover"></span></li>
+                        <li><a href="#">跌打骨伤</a><span class="hover"></span></li>
+                        <li><a href="#">腰椎病</a><span class="hover"></span></li>
+                        <li><a href="#">骨质疏松</a><span class="hover"></span></li>
+                        <li><a href="#">痛风</a><span class="hover"></span></li>
+                        <li><a href="#">外用贴膏</a><span class="hover"></span></li>
+                        <li><a href="#">骨质增生</a><span class="hover"></span></li>
+                        <li><a href="#">股骨头坏死</a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="/images/五官科.png" style="width: 18px;height: 18px"> &nbsp;五官科疾病</a><span
+                            class="hover"></span>
+                    <ul class="sub-menu" style="margin-top: -200px">
+                        <li><a href="#">鼻炎</a><span class="hover"></span></li>
+                        <li><a href="#">咽喉炎</a><span class="hover"></span></li>
+                        <li><a href="#">眼干眼涩</a><span class="hover"></span></li>
+                        <li><a href="#">耳聋耳鸣</a><span class="hover"></span></li>
+                        <li><a href="#">口腔溃疡</a><span class="hover"></span></li>
+                        <li><a href="#">牙周痛病</a><span class="hover"></span></li>
+                        <li><a href="#">眼部炎症</a><span class="hover"></span></li>
+                        <li><a href="#">白内障</a><span class="hover"></span></li>
+                        <li><a href="#">视网膜病变</a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="/images/口腔护理.png" style="width: 18px;height: 18px"> &nbsp;口腔护理</a><span
+                            class="hover"></span>
+                    <ul class="sub-menu" style="margin-top: -240px">
+                        <li><a href="#">牙膏</a><span class="hover"></span></li>
+                        <li><a href="#">牙刷</a><span class="hover"></span></li>
+                        <li><a href="#">漱口水</a><span class="hover"></span></li>
+                        <li><a href="#">牙线</a><span class="hover"></span></li>
+                        <li><a href="#">假牙护理</a><span class="hover"></span></li>
+                        <li><a href="#">进口口腔</a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="/images/面部护理.png" style="width: 18px;height: 18px"> &nbsp;面部护理</a><span
+                            class="hover"></span>
+                    <ul class="sub-menu" style="margin-top: -280px">
+                        <li><a href="#">祛痘</a><span class="hover"></span></li>
+                        <li><a href="#">祛疤</a><span class="hover"></span></li>
+                        <li><a href="#">抗敏</a><span class="hover"></span></li>
+                        <li><a href="#">祛斑</a><span class="hover"></span></li>
+                        <li><a href="#">去黑头</a><span class="hover"></span></li>
+                        <li><a href="#">去黑眼圈</a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                    </ul>
+                </li>
+
+                <li><a href="#"><img src="/images/儿科用药.png" style="width: 18px;height: 18px"> &nbsp;儿科用药</a><span
+                            class="hover"></span>
+                    <ul class="sub-menu" style="margin-top: -320px">
+                        <li><a href="#">儿童呼吸道疾病</a><span class="hover"></span></li>
+                        <li><a href="#">儿童消化道疾病</a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="/images/医药保健.png" style="width: 18px;height: 18px"> &nbsp;滋补保健</a><span
+                            class="hover"></span>
+                    <ul class="sub-menu" style="margin-top: -360px">
+                        <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                        <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                        <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                        <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                        <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                        <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="/images/医疗器械.png" style="width: 18px;height: 18px;"> &nbsp;医疗器械</a><span
+                            class="hover"></span>
+                    <ul class="sub-menu" style="margin-top: -400px">
+                        <li><a href="#">高血压</a><span class="hover"></span></li>
+                        <li><a href="#">脑血管病</a><span class="hover"></span></li>
+                        <li><a href="#">冠心病</a><span class="hover"></span></li>
+                        <li><a href="#">高血脂</a><span class="hover"></span></li>
+                        <li><a href="#">心绞痛</a><span class="hover"></span></li>
+                        <li><a href="#">静脉曲张</a><span class="hover"></span></li>
+                        <li><a href="#">心力衰竭</a><span class="hover"></span></li>
+                        <li><a href="#">血液病</a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                        <li><a href="#"></a><span class="hover"></span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="middle">
+        <div id="Mtop">
+            <span><img src="../images/首页.png" alt=""></span>
+            <span><a href="/">首页</a></span>
+            <span> > </span>
+            <span><a href="/goods/AllGoods">呼吸道疾病</a></span>
+            <span> > </span>
+            <span> <a href="/goods/AllGoods">感冒发烧</a></span>
+            <span> > </span>
+            <span><%= OneGoods[0].GoodsName %></span>
+        </div>
+        <div id="body">
+            <form action="/goods/Cart" method="post">
+                <div id="Pic">
+                    <table border="0" width="300px" style="text-align: center">
+                        <tr></tr>
+                        <tr colspan="5" align="center" id="viewPic">
+                            <div id="div0">
+                                <div class="small">
+                                    <span class="mark"></span>
+                                    <span class="floatLeft"></span>
+                                    <img id="view_img" border="0" src="/upload/<%= OneGoods[0].Pic %>"
+                                         style="width:300px;height: 300px"></div>
+                                <div class="big"><img style="width: 600px;height: 600px" src="/upload/<%= OneGoods[0].Pic %>"></div>
+                            </div>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                        </tr>
+                    </table>
+                    <p style="color: #636363">商品编码：<%= OneGoods[0].GoodsId %>　
+                        <img src="/images/收藏.png" alt=""> <a href="">收藏</a>
+                        <img src="/images/分享.png" alt=""> <a href="">分享</a></p>
+
+                </div>
+                <div id="detail">
+                    <p style="font-size: 16px"><b><%= OneGoods[0].GoodsName %></b></p>
+                    <p id="P">   <%= OneGoods[0].Describe %></p>
+                    <p>价格：<span style="font-size: 30px;color: #FF574D">￥<%= OneGoods[0].Price %></span>
+                        <img src="/images/团购.png" alt=""> &nbsp;累计评论：<span style="font-size: 25px"><a
+                                    href="">2395</a></span></p>
+                    <p><span style="background-color: #FF9902;color: #ffffff;font-size: 20px">团购</span>&nbsp; &nbsp;该商品已享受团购优惠
+                    </p>
+                    <p><span style="background-color: #EF3E3A;color: #ffffff;font-size: 20px"> 满减</span>&nbsp; &nbsp;本商品享受满¥128元减10元优惠活动
+                    </p>
+                    <br>
+                    <p style="color: #EF3E3A;padding-left: 20px">请选择购买数量</p>
+                    <p style="padding-left: 20px">数&nbsp; 量：<input type="number" value="1" min="1" name="Count" id="Count" style=" text-align:center;  width: 70px;height: 30px"></p>
+                    <div id="car">
+                        <div><img src="/images/购物车.png" alt="" style="position: relative;top: 43px;left: 45px"></div>
+                        <input type="hidden" name="GoodsId" id="GoodsId" value="<%= OneGoods[0].GoodsId %>"/>
+                        <input type="hidden" name="GoodsName" id="GoodsName" value="<%= OneGoods[0].GoodsName %>"/>
+                        <input type="hidden" name="Price" id="Price" value="<%= OneGoods[0].Price %>"/>
+                        <div><input style="cursor: pointer;" id="btn" type="submit" value="加入购物车" class="mouseOutStyle"
+                                    onmouseover="this.className='mouseOverStyle'"
+                                    onmouseout="this.className='mouseOutStyle'">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div style="color: #9A9A9A">本商品由速康送药销售和送货<br><br>8:00到22:00之间下单，60分钟极速送达。</div>
+                    <br>
+                    <span><b>支持&nbsp; </b></span>
+                    <span><img src="/images/支持.png" alt=""></span>
+                    <span><a href="">100%正品</a></span>
+                    <span><img src="/images/支持.png" alt=""></span>
+                    <span><a href="">满128减10，满30免费配送</a></span>
+                    <span><img src="/images/支持.png" alt=""></span>
+                    <span><a href="">药监认证</a></span>
+                </div>
+            </form>
+            <div id="App">
+                <div id="ART">
+                    <p><b>放心购买</b></p>
+                    <p>互联网药品交易资格证：</p>
+                    <p>苏E20160912</p>
+                </div>
+                <div id="ARM">更多购买渠道</div>
+                <div><img src="/images/111.png" alt="" style="margin-top: -10px;width: 200px"></div>
+                <p style="text-align: center"><b>用速康送药APP下单<br>首单立减10元</b></p>
+                <div style="border-bottom: 1px dotted"></div>
+                <div><img src="/images/手机APP.png" alt="" style="padding-left: 30px;padding-top: 30px"></div>
+            </div>
+        </div>
+        <div id="side">
+            <a href="http://www.jiathis.com/share" class="jiathis">
+                <div id="side1" title="分享"></div>
+            </a>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1" charset="utf-8"></script>
+            <a href="/goods/Cart">
+                <div id="side2" title="购物车"></div>
+            </a>
+            <div id="side3" title="回到顶部"></div>
+        </div>
+
+        <hr style="width: 985px">
+        <div id="center">
+            <div id="Cleft">
+                <div>
+                    <h4 id="Topic1">相关分类</h4>
+                    <ul id="content1">
+                        <li><a href="">维生素AD</a></li>
+                        <li><a href="">维生素B</a></li>
+                        <li><a href="">维生素C</a></li>
+                        <li><a href="">维生素D</a></li>
+                        <li><a href="">维生素E</a></li>
+                        <li><a href="">复合维生素</a></li>
+                        <li><a href="">胡萝卜素</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 id="Topic2">同类其他品牌</h4>
+                    <ul id="content2">
+                        <li><a href="">养生堂</a></li>
+                        <li><a href="">惠氏/Wyeth</a></li>
+                        <li><a href="">黄金搭档</a></li>
+                        <li><a href="">天然</a></li>
+                        <li><a href="">好维</a></li>
+                        <li><a href="">FANCL</a></li>
+                        <li><a href="">健佰龄/Gbel</a></li>
+                    </ul>
+                </div>
+                <br/>
+                <img src="/images/L1.jpg" alt="">
+                <img src="/images/L2.jpg" alt="">
+                <img src="/images/L3.jpg" alt="">
+            </div>
+
+            <div id="Cright">
+                <div class="Tab">
+                    <div class="Menubox">
+                        <ul>
+                            <li id="menu1" onclick="setTab('menu',1,3)" class="hover">商品详情</li>
+                            <li id="menu2" onclick="setTab('menu',2,3)" style="border-left: 2px solid #ffffff">
+                                商品评价（2395）
+                            </li>
+                            <li id="menu3" onclick="setTab('menu',3,3)" style="border-left: 2px solid #ffffff">关于速康送药
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="Contentbox">
+                        <div id="con_menu_1" class="hover">
+                            <div id="p1">
+                                <p>商品名称：惠氏善存 多维元素片(29) 100片</p>
+                                <p>品　　牌： Centrum/善存　　　　　　　　　　　　　　规　　格： 100片</p>
+                                <p>重　　量： 0.22kg　　　　　　　　　　　　　　　　　生产厂商: 惠氏制药有限公司</p>
+                                <p>批准文号： 国药准字H10950026</p>
+                                <p>温馨提示： 部分商品包装更换频繁，如货品与图片 不完全一致，请以收到的商品实物为准</p>
+                            </div>
+                            <br>
+                            <img src="/images/D0.jpg" alt="">
+                            <img src="/images/D1.jpg" alt="">
+                            <img src="/images/D2.jpg" alt="">
+                            <img src="/images/D3.jpg" alt="">
+                            <img src="/images/D4.jpg" alt="">
+                            <img src="/images/D5.jpg" alt="">
+                            <img src="/images/D6.jpg" alt="">
+                            <img src="/images/D7.jpg" alt="">
+                            <img src="/images/D8.jpg" alt="">
+                            <img src="/images/D9.jpg" alt="">
+                            <img src="/images/D10.jpg" alt="">
+                            <br><br><br>
+                        </div>
+                        <div id="con_menu_2" style="display:none">
+                            <br>
+                            <img src="/images/评论.png" alt="" style="width: 787px">
+                            <br>
+                            <div id="Tab">
+                                <div class="Menubox">
+                                    <ul id="ul">
+                                        <li id="menu21" onclick="setTab2('menu2',1,4)" class="hover">全部评价（2953）</li>
+                                        <li id="menu22" onclick="setTab2('menu2',2,4)"
+                                            style="border-left: 2px solid #ffffff">好评（2850）
+                                        </li>
+                                        <li id="menu23" onclick="setTab2('menu2',3,4)"
+                                            style="border-left: 2px solid #ffffff">中评（70）
+                                        </li>
+                                        <li id="menu24" onclick="setTab2('menu2',4,4)"
+                                            style="border-left: 2px solid #ffffff">差评（15）
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="Contentbox">
+                                    <div id="con2_menu2_1" class="hover">
+                                        <hr style="color: #F7F7F7">
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left"><span>好评<br><br>2016-02-01</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;158***
+                                                </p></div>
+                                        </div>
+                                        <hr style="color: #F7F7F7">
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left"><span>对商品非常满意<br><br>2016-03-21</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;198***
+                                                </p></div>
+                                        </div>
+                                        <hr style="color: #F7F7F7">
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left"><span>实惠，正品。<br><br>2016-06-28</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;188***
+                                                </p></div>
+                                        </div>
+                                        <hr style="color: #F7F7F7">
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left"><span>好评<br><br>2016-07-01</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;131***
+                                                </p></div>
+                                        </div>
+                                        <hr style="color: #F7F7F7">
+                                    </div>
+                                    <div id="con2_menu2_2" style="display:none">
+                                        <hr style="color: #F7F7F7">
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left"><span>不错<br><br>2016-01-01</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;252***
+                                                </p></div>
+                                        </div>
+                                        <hr>
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left"><span>好评<br><br>2016-03-15</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;682***
+                                                </p></div>
+                                        </div>
+                                        <hr>
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left"><span>对商品非常满意<br><br>2016-02-01</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;688***
+                                                </p></div>
+                                        </div>
+                                        <hr>
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left"><span>实惠，正品。<br><br>2016-05-01</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;762***
+                                                </p></div>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                    <div id="con2_menu2_3" style="display:none">
+                                        <hr>
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left">
+                                                <span>产品本身没啥问题，价格虚高，刚买完就降价好多，伤心<br><br>2016-09-01</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;157***
+                                                </p></div>
+                                        </div>
+                                        <hr>
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left"><span>还可以<br><br>2016-06-11</span></div>
+                                            <div style="padding-left: 600px"><p><img src="../images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;138***
+                                                </p></div>
+                                        </div>
+                                        <hr>
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left"><span>没有给发票！！！！！！！<br><br>2016-04-22</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;168***
+                                                </p></div>
+                                        </div>
+                                        <hr>
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left"><span>还凑合<br><br>2016-06-02</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;171***
+                                                </p></div>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                    <div id="con2_menu2_4" style="display:none">
+                                        <hr>
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left"><span>卖家不讲诚信。写着买善存多维元素片100片装送药盒，收到货时并没有送药盒。<br><br>2016-09-01</span>
+                                            </div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;832***
+                                                </p></div>
+                                        </div>
+                                        <hr>
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left">
+                                                <span>本来以为是套餐点错了，怎么比市场价还贵=_=!<br><br>2016-05-01</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;891***
+                                                </p></div>
+                                        </div>
+                                        <hr>
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left">
+                                                <span>东西没到快递居然显示客户已签收！圆通快递绝对差评！<br><br>2016-04-21</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;282***
+                                                </p></div>
+                                        </div>
+                                        <hr>
+                                        <div style="height: 70px;margin-left: 20px;margin-top: 30px">
+                                            <div style="float: left"><span>快递都还没到，居然提示完成<br><br>2016-05-31</span></div>
+                                            <div style="padding-left: 600px"><p><img src="/images/账号.png" alt=""
+                                                                                     style="width: 30px;height: 30px;margin-top: 10px">&nbsp;889***
+                                                </p></div>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="con_menu_3" style="display:none">
+                            <br>
+                            <img src="/images/DSK1.png" alt="">
+                            <img src="/images/关于我们.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="side">
+        <a href="http://www.jiathis.com/share" class="jiathis">
+            <div id="side1" title="分享"></div>
+        </a>
+        <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1" charset="utf-8"></script>
+        <a href="/goods/Cart">
+            <div id="side2" title="购物车"></div>
+        </a>
+        <div id="side3" title="回到顶部"></div>
+    </div>
+
+    <div id="foot1">
+        <div class="footMin1" style="margin-left: 70px">
+            <img src="/images/foot1.png" alt="" width="220px" height="130"/>
+        </div>
+        <div class="footMin1">
+            <img src="/images/foot2.png" alt="" width="220" height="130"/>
+        </div>
+        <div class="footMin1">
+            <img src="/images/foot3.png" alt="" width="220" height="130"/>
+        </div>
+        <div class="footMin1">
+            <img src="/images/foot4.png" alt="" width="220" height="130"/>
+        </div>
+    </div>
+
+    <footer class="footer">
+        关于我们丨 友情链接丨 联系我们丨 诚聘英才丨 帮助中心丨 <br/>
+        苏州市公安局备案编号110105014669丨苏ICP备14030992号丨互联网药品信息服务资格证编号（苏)-非经营性-2016-0912 <br/>
+        Copyright @ 2014-2016 速康送药 4000000511.com版权所有
+    </footer>
+</div>
+<script language="JavaScript" src="/javascripts/index2.js"></script>
+</body>
+</html>
+
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398, 39.897445);
+    map.centerAndZoom(point, 12);
+
+    function myFun(result) {
+        var cityName = result.name;
+        map.setCenter(cityName);
+        document.getElementById('demo').innerHTML = '[' + cityName + ']';
+    }
+    var myCity = new BMap.LocalCity();
+    myCity.get(myFun);
+</script>

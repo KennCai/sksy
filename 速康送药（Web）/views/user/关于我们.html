@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于我们</title>
+    <link rel="icon" type="image/x-icon" href="/images/速康logo.jpg" >
+    <link rel="stylesheet" href="/stylesheets/关于我们.css">
+    <script src="/javascripts/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=2.0&ak=H9G5X4tyPuhvHosMGue3B4RcImb2ZOod"></script>
+    <script>
+        $(document).ready(function () {
+            $.get("/users/Session", function (data, status) {
+                console.log("数据: " + data + "\n状态: " + status);
+                $("#UserInfo").html(data);
+            });
+        });
+    </script>
+</head>
+<body onload="Time()">
+<div id="page">
+    <div id="top">
+        <div id="left">
+            当前位置
+            <div id="demo">[正在定位..]</div>
+            <div id="allmap"></div>
+        </div>
+        <div id="right">
+            <ul>
+                <div class="right1"><span id="UserInfo"></span>&nbsp;</div>
+                <div class="right2">
+                    <li><a href="/goods/UserOrder">我的订单</a> |</li>
+                    <li><a href="/users/ShowUser">个人中心 |</a></li>
+                    <li><a href="/Help">帮助中心</a> |</li>
+                    <!--<li style="color:#C7A875">400-007-1234 |</li>-->
+                    <li>手机APP |</li>
+                    <li><a href="/users/glyLogin">管理员</a></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div id="menu1">
+        <div id="div1">
+            <a href="/"> <img src="/images/速康logo.jpg" alt="" style="width: 80px;height: 80px"></a></div>
+        <div id="div2"> |</div>
+        <div id="div3"> 速康送药<br>您身边的<br>健康专家！</div>
+        <a href="/goods/searchGood">
+            <div id="div4"><input type="text" placeholder="   &nbsp请输入商品名"
+                                  style="width: 380px;height: 40px;border:2px solid #0CA2DE;font-size: 14px;"></div>
+            <div id="div5"><img src="/images/search.png"
+                                style="padding-left: 18px;padding-top: 11px;width: 20px;height: 20px;"></div></a>
+        <div id="div6">
+            <div style="float: left;padding-top: 20px;"><img src="/images/电话.png" alt=""></div>
+            <div style="float: left;margin-top: -5px;"><P style="font-size: 20px">400-010-1234 选药品<br><b>60</b>分钟内免费送到家
+            </P></div>
+        </div>
+    </div>
+    <hr>
+    <div id="menu2">
+
+        <div id="mr">
+            <ul>
+                <li><a href="/" style="color: #ffffff">首页</a>&nbsp;</li>
+                <li><a href="/users/Hdzq" style="color: #ffffff">活动专区</a>&nbsp;</li>
+                <li><a href="/users/Health" style="color: #ffffff">健康资讯</a>&nbsp;</li>
+                <li><a href="/users/Flow" style="color: #ffffff">购药指南</a>&nbsp;</li>
+                <li><a href="/users/Gywm" style="color: #ffffff">关于我们</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="nav">
+        <div id="ml">
+            <div style="float: left">全部商品分类&nbsp;</div>
+            <div style="float: left"><img src="/images/菜单.png" alt="" width="25px" height="25px" align="center"></div>
+        </div>
+
+        <div class="class">
+            <div class="sidebar">
+                <ul style="padding: 0">
+                    <li><a href="#"><img src="/images/呼吸系统.png" style="width: 18px;height: 18px"> &nbsp;呼吸道疾病</a><span
+                            class="hover"></span>
+                        <ul class="sub-menu">
+                            <li><a href="/goods/AllGoods">感冒发烧</a><span class="hover"></span></li>
+                            <li><a href="#">咳嗽</a><span class="hover"></span></li>
+                            <li><a href="#">上火</a><span class="hover"></span></li>
+                            <li><a href="#">小儿感冒</a><span class="hover"></span></li>
+                            <li><a href="#">哮喘</a><span class="hover"></span></li>
+                            <li><a href="#">支气管炎</a><span class="hover"></span></li>
+                            <li><a href="#">慢性阻塞性肺病</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="/images/肠胃用药.png" style="width: 18px;height: 18px"> &nbsp;消化系统疾病</a><span
+                            class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -80px">
+                            <li><a href="#">胃炎</a><span class="hover"></span></li>
+                            <li><a href="#">胃肠溃疡</a><span class="hover"></span></li>
+                            <li><a href="#">结肠炎</a><span class="hover"></span></li>
+                            <li><a href="#">消化不良</a><span class="hover"></span></li>
+                            <li><a href="#">便秘</a><span class="hover"></span></li>
+                            <li><a href="#">腹泻</a><span class="hover"></span></li>
+                            <li><a href="#">痔疮</a><span class="hover"></span></li>
+                            <li><a href="#">小儿肠胃病</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="/images/皮肤病.png" style="width: 18px;height: 18px"> &nbsp;皮肤病</a><span
+                            class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -120px">
+                            <li><a href="#">皮炎癣症</a><span class="hover"></span></li>
+                            <li><a href="#">银屑病</a><span class="hover"></span></li>
+                            <li><a href="#">痤疮</a><span class="hover"></span></li>
+                            <li><a href="#">白癜风</a><span class="hover"></span></li>
+                            <li><a href="#">黄褐斑</a><span class="hover"></span></li>
+                            <li><a href="#">疤痕</a><span class="hover"></span></li>
+                            <li><a href="#">灰指甲</a><span class="hover"></span></li>
+                            <li><a href="#">烧烫创伤</a><span class="hover"></span></li>
+                            <li><a href="#">过敏</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="/images/运动风湿骨科.png" style="width: 18px;height: 18px">
+                        &nbsp;运动风湿骨科</a><span class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -160px">
+                            <li><a href="#">风湿类风湿</a><span class="hover"></span></li>
+                            <li><a href="#">骨关节炎</a><span class="hover"></span></li>
+                            <li><a href="#">跌打骨伤</a><span class="hover"></span></li>
+                            <li><a href="#">腰椎病</a><span class="hover"></span></li>
+                            <li><a href="#">骨质疏松</a><span class="hover"></span></li>
+                            <li><a href="#">痛风</a><span class="hover"></span></li>
+                            <li><a href="#">外用贴膏</a><span class="hover"></span></li>
+                            <li><a href="#">骨质增生</a><span class="hover"></span></li>
+                            <li><a href="#">股骨头坏死</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="/images/五官科.png" style="width: 18px;height: 18px"> &nbsp;五官科疾病</a><span
+                            class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -200px">
+                            <li><a href="#">鼻炎</a><span class="hover"></span></li>
+                            <li><a href="#">咽喉炎</a><span class="hover"></span></li>
+                            <li><a href="#">眼干眼涩</a><span class="hover"></span></li>
+                            <li><a href="#">耳聋耳鸣</a><span class="hover"></span></li>
+                            <li><a href="#">口腔溃疡</a><span class="hover"></span></li>
+                            <li><a href="#">牙周痛病</a><span class="hover"></span></li>
+                            <li><a href="#">眼部炎症</a><span class="hover"></span></li>
+                            <li><a href="#">白内障</a><span class="hover"></span></li>
+                            <li><a href="#">视网膜病变</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="/images/口腔护理.png" style="width: 18px;height: 18px"> &nbsp;口腔护理</a><span
+                            class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -240px">
+                            <li><a href="#">牙膏</a><span class="hover"></span></li>
+                            <li><a href="#">牙刷</a><span class="hover"></span></li>
+                            <li><a href="#">漱口水</a><span class="hover"></span></li>
+                            <li><a href="#">牙线</a><span class="hover"></span></li>
+                            <li><a href="#">假牙护理</a><span class="hover"></span></li>
+                            <li><a href="#">进口口腔</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="/images/面部护理.png" style="width: 18px;height: 18px"> &nbsp;面部护理</a><span
+                            class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -280px">
+                            <li><a href="#">祛痘</a><span class="hover"></span></li>
+                            <li><a href="#">祛疤</a><span class="hover"></span></li>
+                            <li><a href="#">抗敏</a><span class="hover"></span></li>
+                            <li><a href="#">祛斑</a><span class="hover"></span></li>
+                            <li><a href="#">去黑头</a><span class="hover"></span></li>
+                            <li><a href="#">去黑眼圈</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#"><img src="/images/儿科用药.png" style="width: 18px;height: 18px"> &nbsp;儿科用药</a><span
+                            class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -320px">
+                            <li><a href="#">儿童呼吸道疾病</a><span class="hover"></span></li>
+                            <li><a href="#">儿童消化道疾病</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="/images/医药保健.png" style="width: 18px;height: 18px"> &nbsp;滋补保健</a><span
+                            class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -360px">
+                            <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                            <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                            <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                            <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                            <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                            <li><a href="#">维生素钙</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="/images/医疗器械.png" style="width: 18px;height: 18px;"> &nbsp;医疗器械</a><span
+                            class="hover"></span>
+                        <ul class="sub-menu" style="margin-top: -400px">
+                            <li><a href="#">高血压</a><span class="hover"></span></li>
+                            <li><a href="#">脑血管病</a><span class="hover"></span></li>
+                            <li><a href="#">冠心病</a><span class="hover"></span></li>
+                            <li><a href="#">高血脂</a><span class="hover"></span></li>
+                            <li><a href="#">心绞痛</a><span class="hover"></span></li>
+                            <li><a href="#">静脉曲张</a><span class="hover"></span></li>
+                            <li><a href="#">心力衰竭</a><span class="hover"></span></li>
+                            <li><a href="#">血液病</a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                            <li><a href="#"></a><span class="hover"></span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="Mtop">
+        <a href="/">
+        <span><img src="../images/首页.png" alt=""></span>
+       首页 </a>
+        <span> > </span>
+        <!--<span><a href="/goods/searchGood">关于我们</a></span>-->
+        <span><a href="/goods/searchGood">关于我们</a></span>
+    </div>
+    <div class="content">
+        <div class="about">
+
+
+            <p>独自在陌生城市打拼的你，生病了还强撑工作</p>
+            <p>老公不在身边的你，宝宝突然生病，束手无策</p>
+            <p>挂念远方父母的你，担心他们的常用药是否充裕</p>
+            <p>半夜高烧不退的你，还在风雪中找寻24小时药房</p>
+            <b>——— 速康送药，在您身边，一键解决用药难题</b>
+            <p style="padding-left: 235px;font-size: 20px;">速康送药（苏州）科技有限公司</p>
+            <ul>
+                <li><strong>快速</strong>承诺服务范围内60分钟送达</li>
+                <li><strong>专业</strong>专业恒温箱保证药品安全</li>
+                <li><strong>便捷</strong>身边药店为您服务</li>
+                <li><strong>周到</strong>核心区域7*24小时全天候服务</li>
+                <li><strong>安全</strong>药企联盟&nbsp;&nbsp;优质优价</li>
+            </ul>
+            <p>
+                速康送药（苏州）科技有限公司旗下的<br/>
+                <span style="color: red">速康送药</span>是一款基于O2O的医药健康类互联网产品，协助药店提供便民服务需求的第三方信息展示平台。
+                致力于打造信息、产品、服务三维一体的移动医疗生态圈，为消费者提供更加便捷的购药服务体验，
+                用心服务人类健康事业。</p>
+            <p>速康在身边，健康每一天！</p>
+            <br/>
+            <p>地址：苏州市独墅湖高教区</p>
+            <p>电话：4000101234</p>
+        </div>
+    </div>
+    <div id="foot">
+        <div class="footMin" style="margin-left: 105px">
+            <img src="/images/foot1.png" alt="" width="220" height="130"/>
+        </div>
+        <div class="footMin">
+            <img src="/images/foot2.png" alt="" width="220" height="130"/>
+        </div>
+        <div class="footMin">
+            <img src="/images/foot3.png" alt="" width="220" height="130"/>
+        </div>
+        <div class="footMin">
+            <img src="/images/foot4.png" alt="" width="220" height="130"/>
+        </div>
+    </div>
+
+    <footer>
+        关于我们丨 友情链接丨 联系我们丨 诚聘英才丨 帮助中心丨 <br/>
+        苏州市公安局备案编号110105014669丨苏ICP备14030992号丨互联网药品信息服务资格证编号（苏)-非经营性-2016-0912 <br/>
+        Copyright @ 2014-2016 速康送药 4000000511.com版权所有
+    </footer>
+</div>
+<script language="JavaScript" src="/javascripts/index2.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398, 39.897445);
+    map.centerAndZoom(point, 12);
+
+    function myFun(result) {
+        var cityName = result.name;
+        map.setCenter(cityName);
+        document.getElementById('demo').innerHTML = '[' + cityName + ']';
+    }
+    var myCity = new BMap.LocalCity();
+    myCity.get(myFun);
+</script>

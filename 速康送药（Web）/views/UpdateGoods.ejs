@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改商品</title>
+    <link rel="icon" type="image/x-icon" href="/images/速康logo.jpg" >
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/javascripts/UpdateGoods.js"></script>
+</head>
+<body>
+<header>
+     <%- include ../head.ejs %>
+</header>
+<section>
+
+    <form class="form-horizontal" method='post' action='javascript:;'
+          role="form" id="frmUploadFile">
+        <h3 style=" margin: 30px 0 30px 200px;font-size: 20px;font-weight: 700 ">商品修改:</h3>
+            <div style="width:800px;margin:auto; text-align: center; border: solid 1px #40b7d6">
+            <% for(var i = 0;i < goods.length;i++) { %>
+           <div style="font-size: 20px;margin-top: 20px">
+               商品编号：<input type="text" value="<%= goods[i].GoodsId %>" readonly style="color: #a0a0a0" name="GoodsId"><br>
+           </div>
+           <div  style="font-size: 20px;margin-top: 20px">
+               商品名称：<input type="text" value="<%= goods[i].GoodsName %>" name="GoodsName"><br>
+           </div>
+           <div  style="font-size: 20px;margin-top: 20px">
+               商品价格：<input type="text" value="<%= goods[i].Price %>" name="Price"><br>
+           </div>
+            <div style="margin-bottom: 10px">
+              <img src="/upload/<%= goods[0].Pic %>" width="150px" style="margin-top: 20px;margin-bottom: 20px" />
+           </div>
+            <!--</tr>-->
+            <% } %>
+
+            <div class="form-group">
+              <span style="display: block; margin-bottom: 10px">修改图片:</span>
+                <span><input style="width: 300px;margin:auto" type="file" name="files" id="myFile" class="form-control"/></span>
+
+                <label style="color: #6c6c6c;margin-top: 20px">图片限于bmp,png,gif,jpeg,jpg格式,且大小不超过1M</label><br/>
+                <label for="control-label" id="fileSize"></label>
+
+            </div>
+            <div style="margin-bottom: 30px">
+                <input type="button"  value="修改"  onClick="uploadFile()" style="width:200px;
+                height: 50px;background-color: #2aabd2;border-radius: 5px 5px 5px 5px;font-size: 20px;color: white">
+                 <span id="spanMessage"></span>
+
+
+            </div>
+            </div>
+    </form>
+</section>
+</body>
+</html>
